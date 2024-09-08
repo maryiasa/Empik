@@ -1,0 +1,5 @@
+package com.empik.exceptions;
+
+public class CaptchaException extends Exception {
+    public CaptchaException() {super("Capctha is shown");}
+}
