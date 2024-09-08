@@ -1,13 +1,10 @@
 package com.empik.pages;
 
-import com.empik.utils.ActionsUtil;
 import com.empik.utils.DriverManager;
-import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-@Log4j2
 public class SearchPage extends Header {
 
     @FindBy(css = ".js-searchHeader")
@@ -55,6 +52,15 @@ public class SearchPage extends Header {
         return firstItemTitle;
     }
 
+    public WebElement getAddFirstItemToCartBtn() {
+        return addFirstItemToCartBtn;
+    }
+
+    public WebElement getFirstItemCard() {
+        return firstItemCard;
+    }
+
+    @Override
     public String getElementText(WebElement element) {
         if (element == searchResultRow || element == emptySearchResult) {
             return element.getText().toString().split(": ")[1].toLowerCase();
@@ -64,8 +70,4 @@ public class SearchPage extends Header {
         return element.getText();
     }
 
-
-    public void addFirstItemToCart() {
-        ActionsUtil.hoverAndClick(firstItemCard, addFirstItemToCartBtn);
-    }
 }

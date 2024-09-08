@@ -33,7 +33,7 @@ public class LoginTest extends CommonTest {
         String logInBtnText = homePageHeader.getElementText(homePageHeader.getLogInBtn());
         Assert.assertEquals(logInBtnText, "Witaj\n" +
                 "zaloguj się");
-        homePageHeader.clickLogInBtn();
+        homePageHeader.clickBtnAndReturnLogInPage(homePageHeader.getLogInBtn());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class LoginTest extends CommonTest {
         LogInPage logInPage = new LogInPage();
         Faker faker = new Faker();
         String email = faker.internet().emailAddress();
-        logInPage.sendUserEmailKeys(email);
+        logInPage.sendUserEmailKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(3000);
         RegistrationPage registrationPage = (RegistrationPage) logInPage.clickNextBtn();
         Assert.assertEquals(registrationPage.getElementText(registrationPage.getUserRegistrationFormName()), "Rejestracja");
@@ -52,7 +52,7 @@ public class LoginTest extends CommonTest {
     public void negativeLogInUserRegistered() throws Exception {
         String email = setUpTestValues("email");
         LogInPage logInPage = new LogInPage();
-        logInPage.sendUserEmailKeys(email);
+        logInPage.sendUserEmailKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(5000);
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();
         Assert.assertEquals(logInPage1.getElementText(logInPage1.getPageName()), "Witaj ponownie, zaloguj się");
