@@ -18,7 +18,7 @@ public class CartPage {
         return itemTitle;
     }
 
-    public String getItemInfo(WebElement element) {
+    public String getElementText(WebElement element) {
         return element.getText();
     }
 }

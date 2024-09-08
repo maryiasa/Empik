@@ -21,8 +21,12 @@ public class RegistrationPage extends HomePage {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    public String getPageName() {
-        return userRegistrationFormName.getText();
+    public WebElement getUserRegistrationFormName() {
+        return userRegistrationFormName;
+    }
+
+    public String getElementText(WebElement element) {
+        return element.getText();
     }
 
     public String getUserRegistrationEmail() {

@@ -30,7 +30,7 @@ public class LoginTest extends CommonTest {
     @BeforeMethod
     public void setUpLoginTest() {
         Header homePageHeader = new Header();
-        String logInBtnText = homePageHeader.getLogInBtn();
+        String logInBtnText = homePageHeader.getElementText(homePageHeader.getLogInBtn());
         Assert.assertEquals(logInBtnText, "Witaj\n" +
                 "zaloguj się");
         homePageHeader.clickLogInBtn();
@@ -44,7 +44,7 @@ public class LoginTest extends CommonTest {
         logInPage.sendUserEmailKeys(email);
         Waiters.wait(3000);
         RegistrationPage registrationPage = (RegistrationPage) logInPage.clickNextBtn();
-        Assert.assertEquals(registrationPage.getPageName(), "Rejestracja");
+        Assert.assertEquals(registrationPage.getElementText(registrationPage.getUserRegistrationFormName()), "Rejestracja");
         Assert.assertEquals(registrationPage.getUserRegistrationEmail(), email);
     }
 
@@ -55,15 +55,15 @@ public class LoginTest extends CommonTest {
         logInPage.sendUserEmailKeys(email);
         Waiters.wait(5000);
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();
-        Assert.assertEquals(logInPage1.getPageName(), "Witaj ponownie, zaloguj się");
-        Assert.assertEquals(logInPage1.getEmail(), "E-mail: " + email);
+        Assert.assertEquals(logInPage1.getElementText(logInPage1.getPageName()), "Witaj ponownie, zaloguj się");
+        Assert.assertEquals(logInPage1.getElementText(logInPage1.getEmail()), "E-mail: " + email);
     }
 
     @Test
     public void negativeLogInEmptyEmail() throws Exception {
         LogInPage logInPage = new LogInPage();
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();
-        Assert.assertEquals(logInPage1.getEmailAlert(), "Pole wymagane");
+        Assert.assertEquals(logInPage1.getElementText(logInPage1.getEmailAlert()), "Pole wymagane");
     }
 
 }

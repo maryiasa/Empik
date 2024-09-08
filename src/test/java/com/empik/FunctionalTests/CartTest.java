@@ -34,11 +34,11 @@ public class CartTest extends CommonTest {
         String search = setUpTestValues("psearch");
         Header homePageHeader = new Header();
         SearchPage searchPage = homePageHeader.sendSearchKeys(search);
-        String itemInfoSearch = searchPage.getItemInfo(searchPage.getFirstItemTitle());
+        String itemInfoSearch = searchPage.getElementText(searchPage.getFirstItemTitle());
         ActionsUtil.scroll(searchPage.getForthItemCard());
         searchPage.addFirstItemToCart();
         CartPage cartPage = searchPage.clickCartBtn();
-        Assert.assertEquals(itemInfoSearch, cartPage.getItemInfo(cartPage.getItemTitle()));
+        Assert.assertEquals(itemInfoSearch, cartPage.getElementText(cartPage.getItemTitle()));
 
     }
 }

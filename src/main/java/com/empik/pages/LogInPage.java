@@ -27,9 +27,6 @@ public class LogInPage extends HomePage {
     @FindBy(className = "truncate")
     private WebElement userEmail;
 
-    @FindBy(name = "j_password")
-    private  WebElement userPasswordInput;
-
     @FindBy(xpath = "//*[@id=\"user-login-form\"]/div[4]/button")
     private WebElement nextBtn;
 
@@ -43,12 +40,16 @@ public class LogInPage extends HomePage {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    public String getPageName() {
-        return userLoginFormName.getText();
+    public WebElement getPageName() {
+        return userLoginFormName;
     }
 
-    public String getEmail() {
-        return userEmail.getText();
+    public WebElement getEmail() {
+        return userEmail;
+    }
+
+    public WebElement getEmailAlert() {
+        return emailAlert;
     }
 
     public HomePage clickNextBtn() throws Exception {
@@ -80,8 +81,8 @@ public class LogInPage extends HomePage {
         return new LogInPage();
     }
 
-    public String getEmailAlert() {
-        return emailAlert.getText();
+    public String getElementText(WebElement element) {
+        return element.getText();
     }
 
 }
