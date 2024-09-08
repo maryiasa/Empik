@@ -2,7 +2,6 @@ package com.empik.pages;
 
 import com.empik.exceptions.CaptchaException;
 import com.empik.exceptions.CaptchaNotFound;
-import com.empik.pages.HomePage.HomePage;
 import com.empik.utils.DriverManager;
 import com.empik.utils.Waiters;
 import lombok.extern.log4j.Log4j2;

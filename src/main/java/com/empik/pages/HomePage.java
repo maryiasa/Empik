@@ -1,4 +1,4 @@
-package com.empik.pages.HomePage;
+package com.empik.pages;
 
 import com.empik.utils.DriverManager;
 import lombok.extern.log4j.Log4j2;

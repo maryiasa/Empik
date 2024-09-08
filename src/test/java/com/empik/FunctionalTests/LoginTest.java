@@ -2,7 +2,7 @@ package com.empik.FunctionalTests;
 
 import com.empik.CommonTest;
 import com.empik.enums.TestValues;
-import com.empik.pages.HomePage.HomePageHeader;
+import com.empik.pages.Header;
 import com.empik.pages.LogInPage;
 import com.empik.pages.RegistrationPage;
 import com.empik.utils.ConfigurationReader;
@@ -29,7 +29,7 @@ public class LoginTest extends CommonTest {
 
     @BeforeMethod
     public void setUpLoginTest() {
-        HomePageHeader homePageHeader = new HomePageHeader();
+        Header homePageHeader = new Header();
         String logInBtnText = homePageHeader.getLogInBtn();
         Assert.assertEquals(logInBtnText, "Witaj\n" +
                 "zaloguj się");

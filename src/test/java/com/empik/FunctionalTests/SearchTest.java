@@ -2,7 +2,7 @@ package com.empik.FunctionalTests;
 
 import com.empik.CommonTest;
 import com.empik.enums.TestValues;
-import com.empik.pages.HomePage.HomePageHeader;
+import com.empik.pages.Header;
 import com.empik.pages.SearchPage;
 import com.empik.utils.ConfigurationReader;
 import lombok.extern.log4j.Log4j2;
@@ -27,7 +27,7 @@ public String setUpTestValues(String key) {
     @Test
     public void searchItemFound() {
         String search = setUpTestValues("psearch");
-        HomePageHeader homePageHeader = new HomePageHeader();
+        Header homePageHeader = new Header();
         SearchPage searchPage = homePageHeader.sendSearchKeys(search);
         String searchResult = searchPage.getSearchResult(searchPage.getSearchResultRow());
         String searchResultCount = searchPage.getSearchResultCount(searchPage.getSearchResultCountValue());
@@ -38,7 +38,7 @@ public String setUpTestValues(String key) {
     @Test
     public void searchItemNotFound() {
         String search = setUpTestValues("nsearch");
-        HomePageHeader homePageHeader = new HomePageHeader();
+        Header homePageHeader = new Header();
         SearchPage searchPage = homePageHeader.sendSearchKeys(search);
         String searchResult = searchPage.getSearchResult(searchPage.getEmptySearchResultRow());
         Assert.assertTrue(searchResult.contains(search + "\n" +
