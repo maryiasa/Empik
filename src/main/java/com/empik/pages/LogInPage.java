@@ -52,6 +52,10 @@ public class LogInPage extends HomePage {
         return emailAlert;
     }
 
+    public WebElement getUserEmailInput() {
+        return userEmailInput;
+    }
+
     public HomePage clickNextBtn() throws Exception {
         String mainWnd = DriverManager.getDriver().getCurrentUrl();
         nextBtn.click();
@@ -74,15 +78,6 @@ public class LogInPage extends HomePage {
             log.error(e.getMessage());
             throw new CaptchaException();
         }
-    }
-
-    public LogInPage sendUserEmailKeys(String email) {
-        userEmailInput.sendKeys(email);
-        return new LogInPage();
-    }
-
-    public String getElementText(WebElement element) {
-        return element.getText();
     }
 
 }

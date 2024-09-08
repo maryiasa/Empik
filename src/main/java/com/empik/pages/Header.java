@@ -1,12 +1,10 @@
 package com.empik.pages;
 
 import com.empik.utils.DriverManager;
-import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-@Log4j2
 public class Header extends HomePage {
 
     @FindBy(css = ".empikNav__userText.ta-login-link")
@@ -26,23 +24,12 @@ public class Header extends HomePage {
         return logInBtn;
     }
 
-    public LogInPage clickLogInBtn() {
-        logInBtn.click();
-        return new LogInPage();
+    public WebElement getSearchInput() {
+        return searchInput;
     }
 
-    public String getElementText(WebElement element) {
-        return element.getText();
+    public WebElement getCartBtn() {
+        return cartBtn;
     }
 
-    public SearchPage sendSearchKeys(String search) {
-        searchInput.sendKeys(search);
-        searchInput.submit();
-        return new SearchPage();
-    }
-
-    public CartPage clickCartBtn() {
-        cartBtn.click();
-        return new CartPage();
-    }
 }

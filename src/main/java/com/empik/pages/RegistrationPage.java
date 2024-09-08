@@ -25,10 +25,6 @@ public class RegistrationPage extends HomePage {
         return userRegistrationFormName;
     }
 
-    public String getElementText(WebElement element) {
-        return element.getText();
-    }
-
     public String getUserRegistrationEmail() {
         return JSExecutorUtil.getTextByID("registration-email");
     }

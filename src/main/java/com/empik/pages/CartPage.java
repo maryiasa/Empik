@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CartPage {
+public class CartPage extends Page {
 
     @FindBy(className = "css-1gl8alp-name")
     private WebElement itemTitle;
@@ -16,9 +16,5 @@ public class CartPage {
 
     public WebElement getItemTitle() {
         return itemTitle;
-    }
-
-    public String getElementText(WebElement element) {
-        return element.getText();
     }
 }

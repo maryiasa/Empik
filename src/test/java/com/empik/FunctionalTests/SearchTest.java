@@ -32,7 +32,7 @@ public String setUpTestValues(String key) {
     public void searchItemFound() {
         String search = setUpTestValues("psearch");
         Header homePageHeader = new Header();
-        SearchPage searchPage = homePageHeader.sendSearchKeys(search);
+        SearchPage searchPage = homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), search);
         String searchResult = searchPage.getElementText(searchPage.getSearchResultRow());
         String searchResultCount = searchPage.getElementText(searchPage.getSearchResultCountValue());
         Assert.assertTrue(search.equalsIgnoreCase(searchResult));
@@ -43,7 +43,7 @@ public String setUpTestValues(String key) {
     public void searchItemNotFound() {
         String search = setUpTestValues("nsearch");
         Header homePageHeader = new Header();
-        SearchPage searchPage = homePageHeader.sendSearchKeys(search);
+        SearchPage searchPage = homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), search);
         String searchResult = searchPage.getElementText(searchPage.getEmptySearchResultRow());
         Assert.assertTrue(searchResult.contains(search + "\n" +
                 "nie możemy znaleźć wyników dla tego hasła."));
