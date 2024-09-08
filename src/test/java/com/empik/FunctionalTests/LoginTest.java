@@ -1,23 +1,35 @@
 package com.empik.FunctionalTests;
 
 import com.empik.CommonTest;
+import com.empik.enums.TestValues;
 import com.empik.pages.HomePage.HomePageHeader;
 import com.empik.pages.LogInPage;
 import com.empik.pages.RegistrationPage;
+import com.empik.utils.ConfigurationReader;
 import com.empik.utils.Waiters;
 import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public class loginTest extends CommonTest {
+@Log4j2
+public class LoginTest extends CommonTest {
+
+    @Parameters
+    public String setUpTestValues(String key) {
+        Map<String, String> testValues = new HashMap<>();
+        testValues.put("email", ConfigurationReader.getTestValue(TestValues.EMAIL.EMAIL));
+        return testValues.get(key).toString().replaceAll("\"", "");
+    }
 
     @BeforeMethod
     public void setUpLoginTest() {
         HomePageHeader homePageHeader = new HomePageHeader();
-        homePageHeader.open();
-        homePageHeader.clickCookies();
         String logInBtnText = homePageHeader.getLogInBtn();
         Assert.assertEquals(logInBtnText, "Witaj\n" +
                 "zaloguj się");
@@ -38,8 +50,8 @@ public class loginTest extends CommonTest {
 
     @Test
     public void negativeLogInUserRegistered() throws Exception {
+        String email = setUpTestValues("email");
         LogInPage logInPage = new LogInPage();
-        String email = "alexey.saganovich.pl@gmail.com";
         logInPage.sendUserEmailKeys(email);
         Waiters.wait(5000);
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();

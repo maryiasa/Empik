@@ -18,6 +18,7 @@ import java.util.Objects;
 public class LogInPage extends HomePage {
 
     private static final Logger log = LogManager.getLogger(LogInPage.class);
+
     @FindBy(xpath = "//*[@id=\"user-login-form\"]/h2")
     private WebElement userLoginFormName;
 
@@ -50,7 +51,6 @@ public class LogInPage extends HomePage {
     public String getEmail() {
         return userEmail.getText();
     }
-
 
     public HomePage clickNextBtn() throws Exception {
         String mainWnd = DriverManager.getDriver().getCurrentUrl();
