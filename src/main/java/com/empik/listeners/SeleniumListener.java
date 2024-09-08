@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverListener;
 
+import java.util.Arrays;
+
 @Log4j2
 public class SeleniumListener implements WebDriverListener {
 
@@ -16,26 +18,32 @@ public class SeleniumListener implements WebDriverListener {
     @Override
     public void beforeSendKeys(WebElement element, CharSequence... keysToSend) {
         WebDriverListener.super.beforeSendKeys(element, keysToSend);
+        log.info("beforeSendKeys: " + Arrays.toString(keysToSend));
     }
 
     @Override
     public void afterSendKeys(WebElement element, CharSequence... keysToSend) {
         WebDriverListener.super.afterSendKeys(element, keysToSend);
+        log.info("afterSendKeys: " + Arrays.toString(keysToSend));
     }
 
-    @Override
+   @Override
     public void beforeClick(WebElement element) {
-        WebDriverListener.super.beforeClick(element);
+       WebDriverListener.super.beforeClick(element);
+       Allure.step("beforeClick: " + element.getText());
+       log.info("beforeClick: " + element.getText());
     }
 
     @Override
     public void afterClick(WebElement element) {
-        Allure.step(element.toString().split("->")[1] + " is clicked");
-        log.info(element.toString().split("->")[1] + " is clicked");
+        WebDriverListener.super.afterClick(element);
+        Allure.step("afterClick: " + element.toString().split("->")[1] + " is clicked");
+        log.info("afterClick: "  + element.toString().split("->")[1] + " is clicked");
     }
 
     @Override
     public void afterQuit(WebDriver driver) {
         WebDriverListener.super.afterQuit(driver);
+        log.info("afterQuit: driver is quit. Session is closed");
     }
 }
