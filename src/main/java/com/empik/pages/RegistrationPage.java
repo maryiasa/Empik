@@ -1,7 +1,6 @@
 package com.empik.pages;
 
 import com.empik.utils.DriverManager;
-import com.empik.pages.HomePage.HomePage;
 
 import com.empik.utils.JSExecutorUtil;
 import lombok.extern.log4j.Log4j2;
@@ -27,6 +26,6 @@ public class RegistrationPage extends HomePage {
     }
 
     public String getUserRegistrationEmail() {
-        return JSExecutorUtil.getTextByID(DriverManager.getDriver(), "registration-email");
+        return JSExecutorUtil.getTextByID("registration-email");
     }
 }

@@ -1,7 +1,7 @@
 package com.empik;
 
 import com.empik.listeners.TestNGListener;
-import com.empik.pages.HomePage.HomePage;
+import com.empik.pages.HomePage;
 import com.empik.utils.DriverManager;
 import com.empik.utils.ScreenshotUtil;
 import org.testng.annotations.AfterMethod;
