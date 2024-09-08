@@ -22,13 +22,17 @@ public class Header extends HomePage {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
+    public WebElement getLogInBtn() {
+        return logInBtn;
+    }
+
     public LogInPage clickLogInBtn() {
         logInBtn.click();
         return new LogInPage();
     }
 
-    public String getLogInBtn() {
-        return logInBtn.getText();
+    public String getElementText(WebElement element) {
+        return element.getText();
     }
 
     public SearchPage sendSearchKeys(String search) {

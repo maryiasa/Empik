@@ -47,10 +47,6 @@ public class SearchPage extends Header {
         return searchResultCount;
     }
 
-    public WebElement getFirstItemCard() {
-        return firstItemCard;
-    }
-
     public WebElement getForthItemCard() {
         return forthItemCard;
     }
@@ -59,17 +55,15 @@ public class SearchPage extends Header {
         return firstItemTitle;
     }
 
-    public String getSearchResult(WebElement element) {
-        return element.getText().toString().split(": ")[1].toLowerCase();
-    }
-
-    public String getSearchResultCount(WebElement element) {
-        return element.getText().toString().split(" ")[1].toLowerCase();
-    }
-
-    public String getItemInfo(WebElement element) {
+    public String getElementText(WebElement element) {
+        if (element == searchResultRow || element == emptySearchResult) {
+            return element.getText().toString().split(": ")[1].toLowerCase();
+        } else if (element == searchResultCount) {
+            return element.getText().toString().split(" ")[1].toLowerCase();
+        }
         return element.getText();
     }
+
 
     public void addFirstItemToCart() {
         ActionsUtil.hoverAndClick(firstItemCard, addFirstItemToCartBtn);
