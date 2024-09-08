@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite" verbose="1" thread-count="3" parallel="methods">
+
+    <test name="Functional Tests" >
+        <classes>
+            <class name="com.empik.FunctionalTests.LoginTest" >
+                <methods>
+                        <exclude name="negativeLogInUserRegistered"/>
+                </methods>
+            </class>
+            <class name="com.empik.FunctionalTests.SearchTest" >
+            </class>
+        </classes>
+    </test>
+
+</suite>
