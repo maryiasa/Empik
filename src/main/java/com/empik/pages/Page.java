@@ -2,8 +2,13 @@ package com.empik.pages;
 
 import com.empik.utils.DriverManager;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
+
+    public Page() {
+        PageFactory.initElements(DriverManager.getDriver(), this);
+    }
 
     public String getElementText(WebElement element) {
         return element.getText();
