@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryUrl": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "productCount": {
+          "type": "integer"
+        },
+        "coverUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categoryName",
+        "categoryUrl",
+        "categoryId",
+        "productCount",
+        "coverUrl"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryUrl": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "productCount": {
+          "type": "integer"
+        },
+        "coverUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categoryName",
+        "categoryUrl",
+        "categoryId",
+        "productCount",
+        "coverUrl"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryUrl": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "productCount": {
+          "type": "integer"
+        },
+        "coverUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categoryName",
+        "categoryUrl",
+        "categoryId",
+        "productCount",
+        "coverUrl"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryUrl": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "productCount": {
+          "type": "integer"
+        },
+        "coverUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categoryName",
+        "categoryUrl",
+        "categoryId",
+        "productCount",
+        "coverUrl"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryUrl": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "productCount": {
+          "type": "integer"
+        },
+        "coverUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categoryName",
+        "categoryUrl",
+        "categoryId",
+        "productCount",
+        "coverUrl"
+      ]
+    }
+  ]
+}

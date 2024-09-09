@@ -1,4 +1,4 @@
-package com.empik.FunctionalTests;
+package com.empik.functionalTests;
 
 import com.empik.CommonTest;
 import com.empik.enums.TestValues;

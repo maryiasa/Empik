@@ -1,0 +1,1181 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "snapshots": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "campaignId": {
+                      "type": "integer"
+                    },
+                    "campaignName": {
+                      "type": "string"
+                    },
+                    "destinationUrl": {
+                      "type": "string"
+                    },
+                    "industryName": {
+                      "type": "string"
+                    },
+                    "displayConditionName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "imageUrl",
+                    "campaignId",
+                    "campaignName",
+                    "destinationUrl",
+                    "industryName",
+                    "displayConditionName"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "placementId": {
+              "type": "integer"
+            },
+            "templateId": {
+              "type": "integer"
+            },
+            "creations": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "placementId",
+            "templateId",
+            "creations"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "snapshots"
+  ]
+}

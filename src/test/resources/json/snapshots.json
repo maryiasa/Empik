@@ -1,0 +1,28 @@
+{
+  "isMobile": false,
+  "placements": [
+    {"templateId": 4, "placementId": 0},
+    {"templateId": 3, "placementId": 1, "categoryUrl": "/ksiazki"},
+    {"templateId": 3, "placementId": 2, "categoryUrl": "/zabawki"},
+    {"templateId": 3, "placementId": 3, "categoryUrl": "/szkolne-i-papiernicze"},
+    {"templateId": 3, "placementId": 4, "categoryUrl": "/dom-i-ogrod"},
+    {"templateId": 3, "placementId": 5, "categoryUrl": "/sport"},
+    {"templateId": 3, "placementId": 6, "categoryUrl": "/zdrowie-i-uroda"},
+    {"templateId": 3, "placementId": 7, "categoryUrl": "/elektronika"},
+    {"templateId": 3, "placementId": 8, "categoryUrl": "/gry-i-programy"},
+    {"templateId": 3, "placementId": 9, "categoryUrl": "/agd"},
+    {"templateId": 3, "placementId": 10, "categoryUrl": "/moda"},
+    {"templateId": 3, "placementId": 11, "categoryUrl": "/muzyka"},
+    {"templateId": 3, "placementId": 12, "categoryUrl": "/audiobooki-i-ebooki"},
+    {"templateId": 3, "placementId": 13, "categoryUrl": "/karty-podarunkowe,53,s"},
+    {"templateId": 3, "placementId": 14, "categoryUrl": "/prasa"},
+    {"templateId": 3, "placementId": 15, "categoryUrl": "/dziecko"},
+    {"templateId": 3, "placementId": 16, "categoryUrl": "/supermarket"},
+    {"templateId": 3, "placementId": 17, "categoryUrl": "/motoryzacja"},
+    {"templateId": 0, "placementId": 18}],
+  "productCategory": null,
+  "productId": null,
+  "targetUrl": "/podreczniki-szkolne",
+  "userId": "dd59dcd4-1858-4ccc-9320-eeeced4a08df",
+  "userProfile": {"loggedIn": false, "inPremiumFree": false, "inPremium": false}
+}

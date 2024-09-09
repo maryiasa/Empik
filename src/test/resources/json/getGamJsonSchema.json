@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "gam": {
+      "type": "object",
+      "properties": {
+        "footer": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "side-banner": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "navibox": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "panelProductCard": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl"
+          ]
+        },
+        "panel-1": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "panel-2": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "tina-1": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "tina-2": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        },
+        "tina-3": {
+          "type": "object",
+          "properties": {
+            "fallbackUrl": {
+              "type": "string"
+            },
+            "fallbackBannerDesktopUrl": {
+              "type": "string"
+            },
+            "fallbackBannerMobileUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fallbackUrl",
+            "fallbackBannerDesktopUrl",
+            "fallbackBannerMobileUrl"
+          ]
+        }
+      },
+      "required": [
+        "footer",
+        "side-banner",
+        "navibox",
+        "panelProductCard",
+        "panel-1",
+        "panel-2",
+        "tina-1",
+        "tina-2",
+        "tina-3"
+      ]
+    }
+  },
+  "required": [
+    "gam"
+  ]
+}
