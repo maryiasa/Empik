@@ -1,9 +1,7 @@
 package com.empik.pages;
 
-import com.empik.utils.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class SearchPage extends Header {
 
@@ -27,10 +25,6 @@ public class SearchPage extends Header {
 
     @FindBy(xpath = "(//*[@class = 'show-on-hover']/button)[1]")
     private WebElement addFirstItemToCartBtn;
-
-    public SearchPage() {
-        PageFactory.initElements(DriverManager.getDriver(), this);
-    }
 
     public WebElement getSearchResultRow() {
         return searchResultRow;
