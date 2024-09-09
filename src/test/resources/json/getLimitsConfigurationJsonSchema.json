@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "maxItemQuantity": {
+      "type": "integer"
+    },
+    "maxDigitalItemQuantity": {
+      "type": "integer"
+    },
+    "maxGiftCardItemQuantity": {
+      "type": "integer"
+    },
+    "maxTotalGiftCardItemQuantity": {
+      "type": "integer"
+    },
+    "maxTotalQuantity": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "maxItemQuantity",
+    "maxDigitalItemQuantity",
+    "maxGiftCardItemQuantity",
+    "maxTotalGiftCardItemQuantity",
+    "maxTotalQuantity"
+  ]
+}
