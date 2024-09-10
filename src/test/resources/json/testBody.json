@@ -1,0 +1,153 @@
+{
+  "data": {
+    "increaseItemQuantity": {
+      "offers": {
+        "offerGroups": [
+          {
+            "offers": [
+              {
+                "offer": {
+                  "offerRef": {
+                    "id": "p1397131470",
+                    "baseInformation": {
+                      "name": "Pakiet: Harry Potter. Tomy 1-7",
+                      "categoryInfo": {
+                        "categories": [
+                          {
+                            "name": "Książki",
+                            "url": "https://www.empik.com/ksiazki,31,s",
+                            "__typename": "Category"
+                          },
+                          {
+                            "name": "Dla młodzieży",
+                            "url": "https://www.empik.com/ksiazki/dla-mlodziezy,3170,s",
+                            "__typename": "Category"
+                          },
+                          {
+                            "name": "Literatura dla młodzieży",
+                            "url": "https://www.empik.com/ksiazki/dla-mlodziezy/literatura-dla-mlodziezy,317001,s",
+                            "__typename": "Category"
+                          }
+                        ],
+                        "__typename": "CategoryInfo"
+                      },
+                      "currentVariant": {
+                        "name": "okładka miękka",
+                        "__typename": "CurrentVariant"
+                      },
+                      "smartAuthor": [
+                        {
+                          "name": "Rowling J. K.",
+                          "link": "https://www.empik.com/szukaj/produkt?author=rowling+j.+k.",
+                          "__typename": "SmartAuthor"
+                        }
+                      ],
+                      "selfUrl": "https://www.empik.com/pakiet-harry-potter-tomy-1-7-rowling-j-k,p1397131470,ksiazka-p",
+                      "cover": {
+                        "small": "https://ecsmedia.pl/c/pakiet-harry-potter-tomy-1-7-p-iext160835274.jpg",
+                        "__typename": "Image"
+                      },
+                      "__typename": "ProductBaseInformation"
+                    },
+                    "energyEfficiency": null,
+                    "detailsInformation": {
+                      "digitalFormat": null,
+                      "__typename": "ProductDetailsInformation"
+                    },
+                    "__typename": "Product"
+                  },
+                  "originalPrice": "798.00",
+                  "appliedDiscount": {
+                    "price": "471.98",
+                    "discountPercentage": 40,
+                    "discountType": "PRICING",
+                    "__typename": "OfferDiscount"
+                  },
+                  "offerId": "prod:p1397131470:0",
+                  "merchant": {
+                    "id": "0",
+                    "name": "Empik",
+                    "url": null,
+                    "__typename": "Merchant"
+                  },
+                  "vatMargin": false,
+                  "quantity": 2,
+                  "availability": {
+                    "name": "Przewidywana wysyłka w 1 dzień rob.",
+                    "type": "IN_24_H",
+                    "__typename": "Availability"
+                  },
+                  "compoundId": null,
+                  "unitPrice": "235.99",
+                  "state": "NEW",
+                  "description": null,
+                  "__typename": "Offer"
+                },
+                "type": "PHYSICAL",
+                "maxQuantity": 10,
+                "availableQuantity": 8,
+                "dispatchAvailability": {
+                  "name": "Przewidywana wysyłka w 1 dzień rob.",
+                  "type": "IN_24_H",
+                  "__typename": "Availability"
+                },
+                "__typename": "CartOffer"
+              }
+            ],
+            "compounds": [],
+            "summary": {
+              "minimalDeliveryAmount": "0.00",
+              "__typename": "OffersSummary"
+            },
+            "delivery": {
+              "storeDelivery": {
+                "cost": "0.00",
+                "__typename": "StoreDeliverySummary"
+              },
+              "minimalDelivery": {
+                "cost": "0.00",
+                "__typename": "MinimalDeliverySummary"
+              },
+              "possibleDiscount": {
+                "promotionType": "REGULAR_MERCHANT",
+                "missingValue": "0.00",
+                "threshold": "250.00",
+                "__typename": "PossibleDeliveryDiscount"
+              },
+              "__typename": "DeliverySummary"
+            },
+            "__typename": "MerchantOfferGroup"
+          }
+        ],
+        "summary": {
+          "totalAmount": "471.98",
+          "offersAmount": "471.98",
+          "minimalDeliveryAmount": "0.00",
+          "productCount": 2,
+          "subscriptionsCount": 0,
+          "discountPercentage": 40,
+          "discountAmount": "326.02",
+          "originalOffersAmount": "798.00",
+          "originalTotalAmount": "798.00",
+          "subscriptionsAmount": "0.00",
+          "__typename": "OffersSummary"
+        },
+        "premiumSummary": {
+          "totalAmount": "471.98",
+          "offersAmount": "471.98",
+          "__typename": "OffersSummary"
+        },
+        "summaryWithoutPremium": {
+          "totalAmount": "471.98",
+          "offersAmount": "471.98",
+          "__typename": "OffersSummary"
+        },
+        "couponCode": null,
+        "couponValidationMessage": null,
+        "potentialPromotionInfo": null,
+        "__typename": "OfferGroupsByMerchant"
+      },
+      "__typename": "Cart"
+    }
+  }
+}
