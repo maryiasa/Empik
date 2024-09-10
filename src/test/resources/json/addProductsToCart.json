@@ -1,0 +1,5 @@
+{
+  "operationName": "AddProductsToCart",
+  "query": "mutation AddProductsToCart($input: AddItemsToCartInput!) {\n  addItemsToCart(addItemsToCartInput: $input) {\n    offers {\n      summary {\n        totalAmount\n        offersAmount\n        productCount\n      }\n    }\n  }\n}\n",
+  "variables": {"input": {"items": [{"offerId": "prod:p1397131470:0", "quantity": 1}]}}
+}
