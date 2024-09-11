@@ -1,10 +1,13 @@
 package com.empik.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SearchPage extends Header {
 
+    private static final Logger log = LogManager.getLogger(SearchPage.class);
     @FindBy(css = ".js-searchHeader")
     private WebElement searchResultRow;
 
@@ -56,10 +59,12 @@ public class SearchPage extends Header {
 
     @Override
     public String getElementText(WebElement element) {
-        if (element == searchResultRow || element == emptySearchResult) {
-            return element.getText().toString().split(": ")[1].toLowerCase();
+        if (element == searchResultRow) {
+            return element.getText().split("Wyniki wyszukiwania dla: ")[1].toLowerCase();
+        } else if (element == emptySearchResult) {
+            return element.getText().split("Szukasz: ")[1].toLowerCase();
         } else if (element == searchResultCount) {
-            return element.getText().toString().split(" ")[1].toLowerCase();
+            return element.getText().split(" ")[1].toLowerCase();
         }
         return element.getText();
     }
