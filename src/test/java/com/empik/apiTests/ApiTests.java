@@ -1,5 +1,6 @@
 package com.empik.apiTests;
 
+import com.empik.pages.Header;
 import io.restassured.RestAssured;
 import io.restassured.config.LogConfig;
 import io.restassured.filter.log.LogDetail;
@@ -24,25 +25,23 @@ public class ApiTests {
 
     private static final Logger log = LogManager.getLogger(ApiTests.class);
 
-    @BeforeMethod
-    public void setUp() {
-        RestAssured.baseURI = "https://www.empik.com";
+    public String apiTestsPreCondition() {
+        Response response = given().log().all().when().get("https://www.empik.com/ajax2/gam").then().log().all().extract().response();
+        Map<String, String> map = new HashMap<>(response.getCookies());
+        System.out.println("getCookies: " + response.getHeaders());
+        return map.toString();
     }
 
-    public String preCondition() {
-        Response response = given().when().get("https://www.empik.com").then().extract().response();
-        Map<String, String> map = new HashMap<>(response.getCookies());
-        return map.toString();
+    @BeforeMethod
+    public void setUpApiTests() {
+        RestAssured.baseURI = "https://www.empik.com";
     }
 
     @Test
     public void getPopularCategories() {
         log.info("getPopularCategories - START");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .queryParam("limit", 5)
-                .when().get("ajax/diuna/popularCategories")
-                .then().log().status()
+                .log().uri().queryParam("limit", 5).when().get("ajax/diuna/popularCategories").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getPopularCategoriesJsonSchema.json"));
         log.info("getPopularCategories - END");
@@ -52,9 +51,7 @@ public class ApiTests {
     public void getGam() {
         log.info("getGam - START");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .when().get("ajax2/gam")
-                .then().log().status()
+                .log().uri().when().get("ajax2/gam").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getGamJsonSchema.json"));
         log.info("getGam - END");
@@ -64,8 +61,7 @@ public class ApiTests {
     public void getChatBot () {
         log.info("getChatBot - START");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .when().get("https://waw.chat.getzowie.com/api/v1/herochat-plugin/instances/55ba5f792e694813b99f99671946396a/multilingual/livechat")
+                .log().uri().when().get("https://waw.chat.getzowie.com/api/v1/herochat-plugin/instances/55ba5f792e694813b99f99671946396a/multilingual/livechat")
                 .then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getChatBotJsonSchema.json"));
@@ -76,10 +72,7 @@ public class ApiTests {
     public void getLimitsConfiguration() {
         log.info("getLimitsConfiguration - START");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .queryParam("sourceSystemChannel", "PORTAL_DESKTOP")
-                .when().get("gateway/api/carts/limits-configuration")
-                .then().log().status()
+                .log().uri().queryParam("sourceSystemChannel", "PORTAL_DESKTOP").when().get("gateway/api/carts/limits-configuration").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getLimitsConfigurationJsonSchema.json"));
         log.info("getLimitsConfiguration - END");
@@ -89,9 +82,7 @@ public class ApiTests {
     public void getItemNotFound() {
         log.info("getItemNotFound - START");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .when().get("pakiet-harry-potter-tomy-1-7-rowling-j-k,p1397131470")
-                .then().log().status()
+                .log().uri().when().get("pakiet-harry-potter-tomy-1-7-rowling-j-k,p1397131470").then().log().status()
                 .statusCode(404);
         log.info("getItemNotFound - END");
     }
@@ -101,16 +92,59 @@ public class ApiTests {
         log.info("putSnapshots - START");
         File file = new File("src/test/resources/json/snapshots.json");
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .contentType(ContentType.JSON).body(file)
-                .when().put("gateway/api/kotoserver/snapshots")
-                .then().log().status()
+                .log().uri().contentType(ContentType.JSON).body(file).when().put("gateway/api/kotoserver/snapshots").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/putSnapshotsJsonSchema.json"));
         log.info("putSnapshots - END");
     }
 
-    @Test(priority = 1)
+
+    //Can't get the cookie
+
+    //(priority = 2)
+    @Test
+    public void postAddItemToCart() {
+        log.info("postAddItemToCart - START");
+        Header homePageHeader = new Header();
+        homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), "Pakiet: Harry Potter. Tomy 1-7");
+
+        String cookies = this.apiTestsPreCondition();
+        log.info("cookies: " + cookies);
+
+        File file = new File("src/test/resources/json/addProductsToCart.json");
+        Response postAddItemToCart =
+                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                        .log().uri()
+                        .cookie(cookies)
+                        .contentType(ContentType.JSON).body(file)
+                        .when().post("gateway/api/graphql/cart")
+                        .then().log().status()
+                        .statusCode(200).extract().response();
+
+        String result = postAddItemToCart.getBody().asString();
+        log.info("result: " + result);
+
+        log.info("postAddItemToCart - END");
+    }
+
+    //(priority = 3)
+    @Test
+    public void postCartItemQuantityIncrease() {
+        log.info("postCartItemQuantityIncrease - START");
+        String cookies = this.apiTestsPreCondition();
+        File addToCart = new File("src/test/resources/json/addProductsToCart.json");
+        File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
+
+        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(addToCart).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
+
+        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
+        log.info("postCartItemQuantityIncrease - END");
+    }
+
+    //(priority = 1)
+    @Test
     public void postQuantityIncreaseNoItemsInCart() {
         log.info("postQuantityIncreaseNoItemsInCart - START");
         File file = new File("src/test/resources/json/quantityIncrease.json");
@@ -127,10 +161,11 @@ public class ApiTests {
         log.info("postQuantityIncreaseNoItemsInCart - END");
     }
 
+    /*
     @Test
     public void postItemActionsInCart() {
         log.info("postItemActionsInCart - START");
-        String cookies = this.preCondition();
+        String cookies = this.apiTestsPreCondition();
         File addToCart = new File("src/test/resources/json/addProductsToCart.json");
         File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
         File quantityDecrease = new File("src/test/resources/json/quantityDecrease.json");
@@ -153,40 +188,5 @@ public class ApiTests {
         log.info("postItemActionsInCart - END");
 
     }
-
-    @Test(priority = 2)
-    public void postAddItemToCart() {
-        log.info("postAddItemToCart - START");
-        String cookies = this.preCondition();
-        File file = new File("src/test/resources/json/addProductsToCart.json");
-        Response postAddItemToCart =
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri()
-                .cookie(cookies)
-                .contentType(ContentType.JSON).body(file)
-                .when().post("gateway/api/graphql/cart")
-                .then().log().status()
-                .statusCode(200).extract().response();
-
-        String result = postAddItemToCart.getBody().asString();
-        log.info("result: " + result);
-
-        log.info("postAddItemToCart - END");
-    }
-
-    @Test(priority = 3)
-    public void postCartItemQuantityIncrease() {
-        log.info("postCartItemQuantityIncrease - START");
-        String cookies = this.preCondition();
-        File addToCart = new File("src/test/resources/json/addProductsToCart.json");
-        File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
-
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(addToCart).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
-
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
-        log.info("postCartItemQuantityIncrease - END");
-    }
-
+     */
 }

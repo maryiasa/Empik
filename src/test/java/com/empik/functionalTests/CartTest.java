@@ -23,15 +23,15 @@ public class CartTest extends CommonTest {
     private static final Logger log = LogManager.getLogger(CartTest.class);
 
     @Parameters
-    public String setUpTestValues(String key) {
+    public String setUpCartTestValues(String key) {
         Map<String, String> testValues = new HashMap<>();
         testValues.put("psearch", ConfigurationReader.getTestValue(TestValues.PSEARCH.PSEARCH));
-        return testValues.get(key).toString().replaceAll("\"", "").toLowerCase();
+        return testValues.get(key).replaceAll("\"", "").toLowerCase();
     }
 
     @Test
     public void addItemToCart() {
-        String search = setUpTestValues("psearch");
+        String search = setUpCartTestValues("psearch");
         Header homePageHeader = new Header();
         SearchPage searchPage = homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), search);
         String itemInfoSearch = searchPage.getElementText(searchPage.getFirstItemTitle());

@@ -21,10 +21,10 @@ import java.util.Map;
 public class LoginTest extends CommonTest {
 
     @Parameters
-    public String setUpTestValues(String key) {
+    public String setUpLoginTestValues(String key) {
         Map<String, String> testValues = new HashMap<>();
         testValues.put("email", ConfigurationReader.getTestValue(TestValues.EMAIL.EMAIL));
-        return testValues.get(key).toString().replaceAll("\"", "");
+        return testValues.get(key).replaceAll("\"", "");
     }
 
     @BeforeMethod
@@ -50,7 +50,7 @@ public class LoginTest extends CommonTest {
 
     @Test
     public void negativeLogInUserRegistered() throws Exception {
-        String email = setUpTestValues("email");
+        String email = setUpLoginTestValues("email");
         LogInPage logInPage = new LogInPage();
         logInPage.sendUserEmailKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(5000);
