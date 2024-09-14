@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "addItemsToCart": {
+          "type": "object",
+          "properties": {
+            "offers": {
+              "type": "object",
+              "properties": {
+                "summary": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "string"
+                    },
+                    "offersAmount": {
+                      "type": "string"
+                    },
+                    "productCount": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "offersAmount",
+                    "productCount"
+                  ]
+                }
+              },
+              "required": [
+                "summary"
+              ]
+            }
+          },
+          "required": [
+            "offers"
+          ]
+        }
+      },
+      "required": [
+        "addItemsToCart"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
