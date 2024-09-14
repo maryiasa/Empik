@@ -24,6 +24,10 @@ public class ApiTests {
 
     String customUrl;
     String pageCookie;
+    int productCount;
+    double totalAmount;
+    int productCountAfterInc;
+    double totalAmountAfterInc;
 
     private static final Logger log = LogManager.getLogger(ApiTests.class);
 
@@ -115,10 +119,16 @@ public class ApiTests {
         File file = new File("src/test/resources/json/addProductsToCart.json");
         Response postAddItemToCart =
                 given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                        .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().body()
-                        .statusCode(200).extract().response();
+                        .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().status()
+                        .statusCode(200).assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/postAddItemToCartJsonSchema.json"))
+                        .extract().response();
 
-        int productCount = Integer.parseInt(postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.productCount"));
+        productCount = Integer.parseInt(postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.productCount"));
+        totalAmount = Double.parseDouble((postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.totalAmount")));
+
+        log.info("productCount: " + productCount);
+        log.info("totalAmount: " + totalAmount);
+
         assertTrue(productCount > 0);
         log.info("postAddItemToCart - END");
     }
@@ -126,29 +136,22 @@ public class ApiTests {
     @Test
     public void postCartItemQuantityIncrease() {
         log.info("postCartItemQuantityIncrease - START");
-        File addToCart = new File("src/test/resources/json/addProductsToCart.json");
         File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
-        Response postAddItemToCart =
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(addToCart).when().post("gateway/api/graphql/cart").then().log().status()
-                .statusCode(200).extract().response();
-
-        String productCountBefore = postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.productCount");
-        String totalAmountBefore = postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.totalAmount");
-
-        log.info("productCountBefore: " + productCountBefore);
-        log.info("totalAmountBefore: " + totalAmountBefore);
-
+        postAddItemToCart();
         Response increaseItemQuantity =
         given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status()
-                .statusCode(200).extract().response();
+                .statusCode(200).assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/postCartItemQuantityIncreaseJsonSchema.json"))
+                .extract().response();
 
-        String productCountAfter = increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.productCount");
-        String totalAmountAfter = increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.totalAmount");
+        productCountAfterInc = Integer.parseInt(increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.productCount"));
+        totalAmountAfterInc = Double.parseDouble(increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.totalAmount"));
 
-        log.info("productCountAfter: " + productCountAfter);
-        log.info("totalAmountAfter: " + totalAmountAfter);
+        log.info("productCountAfterInc: " + productCountAfterInc);
+        log.info("totalAmountAfterInc: " + totalAmountAfterInc);
+
+        assertTrue((productCount * 2) == productCountAfterInc);
+        assertTrue((totalAmount * 2) == totalAmountAfterInc);
 
         log.info("postCartItemQuantityIncrease - END");
     }

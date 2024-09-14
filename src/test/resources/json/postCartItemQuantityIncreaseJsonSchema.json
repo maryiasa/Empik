@@ -1,0 +1,599 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "increaseItemQuantity": {
+          "type": "object",
+          "properties": {
+            "offers": {
+              "type": "object",
+              "properties": {
+                "offerGroups": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "offers": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "offer": {
+                                  "type": "object",
+                                  "properties": {
+                                    "offerRef": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "baseInformation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "categoryInfo": {
+                                              "type": "object",
+                                              "properties": {
+                                                "categories": {
+                                                  "type": "array",
+                                                  "items": [
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "name": {
+                                                          "type": "string"
+                                                        },
+                                                        "url": {
+                                                          "type": "string"
+                                                        },
+                                                        "__typename": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "name",
+                                                        "url",
+                                                        "__typename"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "name": {
+                                                          "type": "string"
+                                                        },
+                                                        "url": {
+                                                          "type": "string"
+                                                        },
+                                                        "__typename": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "name",
+                                                        "url",
+                                                        "__typename"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "name": {
+                                                          "type": "string"
+                                                        },
+                                                        "url": {
+                                                          "type": "string"
+                                                        },
+                                                        "__typename": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "name",
+                                                        "url",
+                                                        "__typename"
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                "__typename": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "categories",
+                                                "__typename"
+                                              ]
+                                            },
+                                            "currentVariant": {
+                                              "type": "object",
+                                              "properties": {
+                                                "name": {
+                                                  "type": "string"
+                                                },
+                                                "__typename": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "name",
+                                                "__typename"
+                                              ]
+                                            },
+                                            "smartAuthor": {
+                                              "type": "array",
+                                              "items": [
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "name": {
+                                                      "type": "string"
+                                                    },
+                                                    "link": {
+                                                      "type": "string"
+                                                    },
+                                                    "__typename": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "name",
+                                                    "link",
+                                                    "__typename"
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "selfUrl": {
+                                              "type": "string"
+                                            },
+                                            "cover": {
+                                              "type": "object",
+                                              "properties": {
+                                                "small": {
+                                                  "type": "string"
+                                                },
+                                                "__typename": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "small",
+                                                "__typename"
+                                              ]
+                                            },
+                                            "__typename": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "name",
+                                            "categoryInfo",
+                                            "currentVariant",
+                                            "smartAuthor",
+                                            "selfUrl",
+                                            "cover",
+                                            "__typename"
+                                          ]
+                                        },
+                                        "energyEfficiency": {
+                                          "type": "null"
+                                        },
+                                        "detailsInformation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "digitalFormat": {
+                                              "type": "null"
+                                            },
+                                            "__typename": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "digitalFormat",
+                                            "__typename"
+                                          ]
+                                        },
+                                        "__typename": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "baseInformation",
+                                        "energyEfficiency",
+                                        "detailsInformation",
+                                        "__typename"
+                                      ]
+                                    },
+                                    "originalPrice": {
+                                      "type": "string"
+                                    },
+                                    "appliedDiscount": {
+                                      "type": "object",
+                                      "properties": {
+                                        "price": {
+                                          "type": "string"
+                                        },
+                                        "discountPercentage": {
+                                          "type": "integer"
+                                        },
+                                        "discountType": {
+                                          "type": "string"
+                                        },
+                                        "__typename": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "price",
+                                        "discountPercentage",
+                                        "discountType",
+                                        "__typename"
+                                      ]
+                                    },
+                                    "offerId": {
+                                      "type": "string"
+                                    },
+                                    "merchant": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "url": {
+                                          "type": "null"
+                                        },
+                                        "__typename": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "name",
+                                        "url",
+                                        "__typename"
+                                      ]
+                                    },
+                                    "vatMargin": {
+                                      "type": "boolean"
+                                    },
+                                    "quantity": {
+                                      "type": "integer"
+                                    },
+                                    "availability": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "type": {
+                                          "type": "string"
+                                        },
+                                        "__typename": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "name",
+                                        "type",
+                                        "__typename"
+                                      ]
+                                    },
+                                    "compoundId": {
+                                      "type": "null"
+                                    },
+                                    "unitPrice": {
+                                      "type": "string"
+                                    },
+                                    "state": {
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "type": "null"
+                                    },
+                                    "__typename": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "offerRef",
+                                    "originalPrice",
+                                    "appliedDiscount",
+                                    "offerId",
+                                    "merchant",
+                                    "vatMargin",
+                                    "quantity",
+                                    "availability",
+                                    "compoundId",
+                                    "unitPrice",
+                                    "state",
+                                    "description",
+                                    "__typename"
+                                  ]
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "maxQuantity": {
+                                  "type": "integer"
+                                },
+                                "availableQuantity": {
+                                  "type": "integer"
+                                },
+                                "dispatchAvailability": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "__typename": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "type",
+                                    "__typename"
+                                  ]
+                                },
+                                "__typename": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "offer",
+                                "type",
+                                "maxQuantity",
+                                "availableQuantity",
+                                "dispatchAvailability",
+                                "__typename"
+                              ]
+                            }
+                          ]
+                        },
+                        "compounds": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "summary": {
+                          "type": "object",
+                          "properties": {
+                            "minimalDeliveryAmount": {
+                              "type": "string"
+                            },
+                            "__typename": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "minimalDeliveryAmount",
+                            "__typename"
+                          ]
+                        },
+                        "delivery": {
+                          "type": "object",
+                          "properties": {
+                            "storeDelivery": {
+                              "type": "object",
+                              "properties": {
+                                "cost": {
+                                  "type": "string"
+                                },
+                                "__typename": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "cost",
+                                "__typename"
+                              ]
+                            },
+                            "minimalDelivery": {
+                              "type": "object",
+                              "properties": {
+                                "cost": {
+                                  "type": "string"
+                                },
+                                "__typename": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "cost",
+                                "__typename"
+                              ]
+                            },
+                            "possibleDiscount": {
+                              "type": "object",
+                              "properties": {
+                                "promotionType": {
+                                  "type": "string"
+                                },
+                                "missingValue": {
+                                  "type": "string"
+                                },
+                                "threshold": {
+                                  "type": "string"
+                                },
+                                "__typename": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "promotionType",
+                                "missingValue",
+                                "threshold",
+                                "__typename"
+                              ]
+                            },
+                            "__typename": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "storeDelivery",
+                            "minimalDelivery",
+                            "possibleDiscount",
+                            "__typename"
+                          ]
+                        },
+                        "__typename": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "offers",
+                        "compounds",
+                        "summary",
+                        "delivery",
+                        "__typename"
+                      ]
+                    }
+                  ]
+                },
+                "summary": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "string"
+                    },
+                    "offersAmount": {
+                      "type": "string"
+                    },
+                    "minimalDeliveryAmount": {
+                      "type": "string"
+                    },
+                    "productCount": {
+                      "type": "integer"
+                    },
+                    "subscriptionsCount": {
+                      "type": "integer"
+                    },
+                    "discountPercentage": {
+                      "type": "integer"
+                    },
+                    "discountAmount": {
+                      "type": "string"
+                    },
+                    "originalOffersAmount": {
+                      "type": "string"
+                    },
+                    "originalTotalAmount": {
+                      "type": "string"
+                    },
+                    "subscriptionsAmount": {
+                      "type": "string"
+                    },
+                    "__typename": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "offersAmount",
+                    "minimalDeliveryAmount",
+                    "productCount",
+                    "subscriptionsCount",
+                    "discountPercentage",
+                    "discountAmount",
+                    "originalOffersAmount",
+                    "originalTotalAmount",
+                    "subscriptionsAmount",
+                    "__typename"
+                  ]
+                },
+                "premiumSummary": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "string"
+                    },
+                    "offersAmount": {
+                      "type": "string"
+                    },
+                    "__typename": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "offersAmount",
+                    "__typename"
+                  ]
+                },
+                "summaryWithoutPremium": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "string"
+                    },
+                    "offersAmount": {
+                      "type": "string"
+                    },
+                    "__typename": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "offersAmount",
+                    "__typename"
+                  ]
+                },
+                "couponCode": {
+                  "type": "null"
+                },
+                "couponValidationMessage": {
+                  "type": "null"
+                },
+                "potentialPromotionInfo": {
+                  "type": "null"
+                },
+                "__typename": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "offerGroups",
+                "summary",
+                "premiumSummary",
+                "summaryWithoutPremium",
+                "couponCode",
+                "couponValidationMessage",
+                "potentialPromotionInfo",
+                "__typename"
+              ]
+            },
+            "__typename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "offers",
+            "__typename"
+          ]
+        }
+      },
+      "required": [
+        "increaseItemQuantity"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
