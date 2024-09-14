@@ -8,7 +8,6 @@ import com.empik.pages.RegistrationPage;
 import com.empik.utils.ConfigurationReader;
 import com.empik.utils.Waiters;
 import com.github.javafaker.Faker;
-import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -17,7 +16,6 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-@Log4j2
 public class LoginTest extends CommonTest {
 
     @Parameters
@@ -41,7 +39,7 @@ public class LoginTest extends CommonTest {
         LogInPage logInPage = new LogInPage();
         Faker faker = new Faker();
         String email = faker.internet().emailAddress();
-        logInPage.sendUserEmailKeys(logInPage.getUserEmailInput(), email);
+        logInPage.sendTestKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(3000);
         RegistrationPage registrationPage = (RegistrationPage) logInPage.clickNextBtn();
         Assert.assertEquals(registrationPage.getElementText(registrationPage.getUserRegistrationFormName()), "Rejestracja");
@@ -52,7 +50,7 @@ public class LoginTest extends CommonTest {
     public void negativeLogInUserRegistered() throws Exception {
         String email = setUpLoginTestValues("email");
         LogInPage logInPage = new LogInPage();
-        logInPage.sendUserEmailKeys(logInPage.getUserEmailInput(), email);
+        logInPage.sendTestKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(5000);
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();
         Assert.assertEquals(logInPage1.getElementText(logInPage1.getPageName()), "Witaj ponownie, zaloguj się");

@@ -6,6 +6,17 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
 
+    private final String homePageUrl = "https://www.empik.com/";
+    private final String registrationPageUrl = "https://www.empik.com/rejestracja?continue=%2F";
+
+    public String getHomePageUrl() {
+        return homePageUrl;
+    }
+
+    public String getRegistrationPageUrl() {
+        return registrationPageUrl;
+    }
+
     public Page() {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
@@ -19,7 +30,11 @@ public abstract class Page {
     }
 
     public void open() {
-        DriverManager.getDriver().get("https://www.empik.com/");
+        DriverManager.getDriver().get(getHomePageUrl());
+    }
+
+    public String getPageUrl() {
+        return DriverManager.getDriver().getCurrentUrl();
     }
 
     public LogInPage clickBtnAndReturnLogInPage(WebElement element) {
@@ -27,14 +42,18 @@ public abstract class Page {
         return new LogInPage();
     }
 
+    public void sendTestKeys(WebElement element, String keys) {
+        element.sendKeys(keys);
+    }
+
+    public RegistrationPage clickBtnAndReturnRegistrationPage(WebElement element) {
+        element.click();
+        return new RegistrationPage();
+    }
+
     public CartPage clickBtnAndReturnCartPage(WebElement element) {
         element.click();
         return new CartPage();
-    }
-
-    public LogInPage sendUserEmailKeys(WebElement element, String keys) {
-        element.sendKeys(keys);
-        return new LogInPage();
     }
 
     public SearchPage sendKeysAndReturnSearchPage(WebElement element, String keys) {

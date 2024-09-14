@@ -1,6 +1,6 @@
 package com.empik.apiTests;
 
-import com.empik.pages.Header;
+import com.empik.utils.CookieHandlerUtil;
 import io.restassured.RestAssured;
 import io.restassured.config.LogConfig;
 import io.restassured.filter.log.LogDetail;
@@ -14,27 +14,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertTrue;
 
+
 @Log4j2
 public class ApiTests {
 
-    private static final Logger log = LogManager.getLogger(ApiTests.class);
+    String customUrl;
+    String pageCookie;
 
-    public String apiTestsPreCondition() {
-        Response response = given().log().all().when().get("https://www.empik.com/ajax2/gam").then().log().all().extract().response();
-        Map<String, String> map = new HashMap<>(response.getCookies());
-        System.out.println("getCookies: " + response.getHeaders());
-        return map.toString();
-    }
+    private static final Logger log = LogManager.getLogger(ApiTests.class);
 
     @BeforeMethod
     public void setUpApiTests() {
         RestAssured.baseURI = "https://www.empik.com";
+        customUrl = "https://empik.com/bestsellery";
+        pageCookie = CookieHandlerUtil.getCookieUsingCookieHandler(customUrl);
     }
 
     @Test
@@ -98,62 +95,13 @@ public class ApiTests {
         log.info("putSnapshots - END");
     }
 
-
-    //Can't get the cookie
-
-    //(priority = 2)
-    @Test
-    public void postAddItemToCart() {
-        log.info("postAddItemToCart - START");
-        Header homePageHeader = new Header();
-        homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), "Pakiet: Harry Potter. Tomy 1-7");
-
-        String cookies = this.apiTestsPreCondition();
-        log.info("cookies: " + cookies);
-
-        File file = new File("src/test/resources/json/addProductsToCart.json");
-        Response postAddItemToCart =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                        .log().uri()
-                        .cookie(cookies)
-                        .contentType(ContentType.JSON).body(file)
-                        .when().post("gateway/api/graphql/cart")
-                        .then().log().status()
-                        .statusCode(200).extract().response();
-
-        String result = postAddItemToCart.getBody().asString();
-        log.info("result: " + result);
-
-        log.info("postAddItemToCart - END");
-    }
-
-    //(priority = 3)
-    @Test
-    public void postCartItemQuantityIncrease() {
-        log.info("postCartItemQuantityIncrease - START");
-        String cookies = this.apiTestsPreCondition();
-        File addToCart = new File("src/test/resources/json/addProductsToCart.json");
-        File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
-
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(addToCart).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
-
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status().statusCode(200);
-        log.info("postCartItemQuantityIncrease - END");
-    }
-
-    //(priority = 1)
     @Test
     public void postQuantityIncreaseNoItemsInCart() {
         log.info("postQuantityIncreaseNoItemsInCart - START");
         File file = new File("src/test/resources/json/quantityIncrease.json");
         Response response =
                 given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                        .log().uri()
-                        .contentType(ContentType.JSON).body(file)
-                        .when().post("gateway/api/graphql/cart")
-                        .then().log().status()
+                        .log().uri().contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().status()
                         .statusCode(200)
                         .extract().response();
 
@@ -161,32 +109,48 @@ public class ApiTests {
         log.info("postQuantityIncreaseNoItemsInCart - END");
     }
 
-    /*
     @Test
-    public void postItemActionsInCart() {
-        log.info("postItemActionsInCart - START");
-        String cookies = this.apiTestsPreCondition();
+    public void postAddItemToCart() {
+        log.info("postAddItemToCart - START");
+        File file = new File("src/test/resources/json/addProductsToCart.json");
+        Response postAddItemToCart =
+                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                        .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().body()
+                        .statusCode(200).extract().response();
+
+        int productCount = Integer.parseInt(postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.productCount"));
+        assertTrue(productCount > 0);
+        log.info("postAddItemToCart - END");
+    }
+
+    @Test
+    public void postCartItemQuantityIncrease() {
+        log.info("postCartItemQuantityIncrease - START");
         File addToCart = new File("src/test/resources/json/addProductsToCart.json");
         File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
-        File quantityDecrease = new File("src/test/resources/json/quantityDecrease.json");
-        String path = "gateway/api/graphql/cart";
+        Response postAddItemToCart =
+        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(addToCart).when().post("gateway/api/graphql/cart").then().log().status()
+                .statusCode(200).extract().response();
 
-        Response postaddToCart =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(addToCart).when().post(path).then().log().status().statusCode(200).extract().response();
-        Response postQuantityIncrease =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(quantityIncrease).when().post(path).then().log().status().statusCode(200).extract().response();
-        Response postQuantityDecrease =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().cookie(cookies).contentType(ContentType.JSON).body(quantityDecrease).when().post(path).then().log().status().statusCode(200).extract().response();
+        String productCountBefore = postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.productCount");
+        String totalAmountBefore = postAddItemToCart.jsonPath().getString("data.addItemsToCart.offers.summary.totalAmount");
 
-        String postaddToCartResult = postaddToCart.getBody().asString();
-        String postQuantityIncreaseResult = postaddToCart.getBody().asString();
-        String postQuantityDecreaseResult = postaddToCart.getBody().asString();
+        log.info("productCountBefore: " + productCountBefore);
+        log.info("totalAmountBefore: " + totalAmountBefore);
 
-        log.info("postItemActionsInCart - END");
+        Response increaseItemQuantity =
+        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status()
+                .statusCode(200).extract().response();
 
+        String productCountAfter = increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.productCount");
+        String totalAmountAfter = increaseItemQuantity.jsonPath().getString("data.increaseItemQuantity.offers.summary.totalAmount");
+
+        log.info("productCountAfter: " + productCountAfter);
+        log.info("totalAmountAfter: " + totalAmountAfter);
+
+        log.info("postCartItemQuantityIncrease - END");
     }
-     */
+
 }
