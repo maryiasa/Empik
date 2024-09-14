@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-@Log4j2
 public class SearchTest extends CommonTest {
 
     @Parameters

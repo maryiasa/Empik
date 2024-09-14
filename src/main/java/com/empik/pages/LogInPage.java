@@ -52,7 +52,7 @@ public class LogInPage extends HomePage {
     }
 
     public HomePage clickNextBtn() throws Exception {
-        String mainWnd = DriverManager.getDriver().getCurrentUrl();
+        String mainWnd = getPageUrl();
         nextBtn.click();
         Waiters.wait(7000);
 
@@ -65,7 +65,7 @@ public class LogInPage extends HomePage {
         } catch (CaptchaNotFound e) {
             log.info(e.getMessage());
 
-            if (Objects.equals(mainWnd, DriverManager.getDriver().getCurrentUrl())) {
+            if (Objects.equals(mainWnd, getPageUrl())) {
                 return new LogInPage();
             } else return new RegistrationPage();
 

@@ -8,6 +8,9 @@ public class Header extends HomePage {
     @FindBy(css = ".empikNav__userText.ta-login-link")
     private WebElement logInBtn;
 
+    @FindBy(xpath = "//*[@title = 'Zarejestruj się']")
+    private WebElement registerBtn;
+
     @FindBy(className = "css-1sobvo3")
     private WebElement searchInput;
 
@@ -26,4 +29,7 @@ public class Header extends HomePage {
         return cartBtn;
     }
 
+    public WebElement getRegisterBtn() {
+        return registerBtn;
+    }
 }
