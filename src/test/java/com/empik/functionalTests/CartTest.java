@@ -8,25 +8,23 @@ import com.empik.pages.SearchPage;
 import com.empik.utils.ActionsUtil;
 import com.empik.utils.ConfigurationReader;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class CartTest extends CommonTest {
 
-    @Parameters
-    public String setUpCartTestValues(String key) {
-        Map<String, String> testValues = new HashMap<>();
-        testValues.put("psearch", ConfigurationReader.getTestValue(TestValues.PSEARCH.PSEARCH));
-        return testValues.get(key).replaceAll("\"", "").toLowerCase();
+    String search;
+    Header homePageHeader;
+
+    @BeforeMethod
+    public void setUpCartTestValues() {
+        search = ConfigurationReader.getTestValue(TestValues.PSEARCH.PSEARCH);
+        homePageHeader = new Header();
     }
 
     @Test
     public void addItemToCart() {
-        String search = setUpCartTestValues("psearch");
-        Header homePageHeader = new Header();
         SearchPage searchPage = homePageHeader.sendKeysAndReturnSearchPage(homePageHeader.getSearchInput(), search);
         String itemInfoSearch = searchPage.getElementText(searchPage.getFirstItemTitle());
         ActionsUtil.scroll(searchPage.getForthItemCard());

@@ -17,6 +17,9 @@ public class Header extends HomePage {
     @FindBy(id = "simple-dropdown4")
     private WebElement cartBtn;
 
+    String registerBtnText = "Załóż je";
+    String loginBtnText = "Witaj\nzaloguj się";
+
     public WebElement getLogInBtn() {
         return logInBtn;
     }
@@ -31,5 +34,13 @@ public class Header extends HomePage {
 
     public WebElement getRegisterBtn() {
         return registerBtn;
+    }
+
+    public String getRegisterBtnText() {
+        return registerBtnText;
+    }
+
+    public String getLoginBtnText() {
+        return loginBtnText;
     }
 }

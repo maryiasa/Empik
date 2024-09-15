@@ -18,7 +18,7 @@ public class CommonTest extends Page {
     public void setUpCommonTest() {
         HomePage homePage = new HomePage();
         homePage.open();
-        homePage.clickBtn(homePage.getAllowCookiesBtn());
+        homePage.getAllowCookiesBtn().click();
     }
 
     @AfterMethod
