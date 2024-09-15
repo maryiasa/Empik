@@ -3,7 +3,9 @@ package com.empik.enums;
 public enum TestValues {
     PSEARCH("psearch", "pędzle"),
     NSEARCH("nsearch", "srgertjj"),
-    EMAIL("email", "test@gmail.com");
+    EMAIL("email", "test@gmail.com"),
+    PWD("pwd", "Qwerty123!abc"),
+    PHONE("phone", "0033891061");
 
     private String key;
     private String defaultValue;

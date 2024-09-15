@@ -2,7 +2,6 @@ package com.empik.pages;
 
 import com.empik.exceptions.CaptchaException;
 import com.empik.exceptions.CaptchaNotFound;
-import com.empik.utils.DriverManager;
 import com.empik.utils.Waiters;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
@@ -29,13 +28,26 @@ public class LogInPage extends HomePage {
     @FindBy(xpath = "//*[@id=\"user-login-form\"]/div[4]/button")
     private WebElement nextBtn;
 
+    @FindBy(xpath = "//*[@id=\"user-login-form\"]/div[5]/button")
+    private WebElement logInBtn;
+
     @FindBy(css = ".error.show")
     private WebElement emailAlert;
 
     @FindBy(xpath = "//iframe[@title = 'recaptcha challenge expires in two minutes']")
     private WebElement reCaptchaFrame;
 
-    public WebElement getPageName() {
+    @FindBy(id = "user-password")
+    private WebElement pwdInput;
+
+    @FindBy(xpath = "//*[@class = 'error show']")
+    private WebElement reCaptchaError;
+
+    private String pageNameEmail = "Zaloguj się lub zarejestruj";
+    private String pageNamePwd = "Witaj ponownie, zaloguj się";
+    private String EmailAlertText = "Pole wymagane";
+
+    public WebElement getLoginPageName() {
         return userLoginFormName;
     }
 
@@ -49,6 +61,30 @@ public class LogInPage extends HomePage {
 
     public WebElement getUserEmailInput() {
         return userEmailInput;
+    }
+
+    public WebElement getPwdInput() {
+        return pwdInput;
+    }
+
+    public WebElement getLogInBtn() {
+        return logInBtn;
+    }
+
+    public WebElement getReCaptchaError() {
+        return reCaptchaError;
+    }
+
+    public String getPageNameEmail() {
+        return pageNameEmail;
+    }
+
+    public String getPageNamePwd() {
+        return pageNamePwd;
+    }
+
+    public String getEmailAlertText() {
+        return EmailAlertText;
     }
 
     public HomePage clickNextBtn() throws Exception {

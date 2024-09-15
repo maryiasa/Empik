@@ -4,9 +4,6 @@
     <test name="Functional Tests" >
         <classes>
             <class name="com.empik.functionalTests.LoginTest" >
-                <methods>
-                        <exclude name="negativeLogInUserRegistered"/>
-                </methods>
             </class>
             <class name="com.empik.functionalTests.SearchTest" >
             </class>

@@ -15,6 +15,7 @@ public class ActionsUtil {
     public static void hover(WebElement hoverElement) {
         Actions builder = new Actions(DriverManager.getDriver());
         builder.moveToElement(hoverElement).perform();
+        Waiters.wait(1000);
     }
 
     public static void scroll(WebElement scrollElement) {

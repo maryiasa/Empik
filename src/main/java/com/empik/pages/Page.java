@@ -1,6 +1,7 @@
 package com.empik.pages;
 
 import com.empik.utils.DriverManager;
+import com.empik.utils.JSExecutorUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -21,29 +22,37 @@ public abstract class Page {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    public String getElementText(WebElement element) {
-        return element.getText();
-    }
-
-    public void clickBtn(WebElement element) {
-        element.click();
-    }
-
     public void open() {
         DriverManager.getDriver().get(getHomePageUrl());
+    }
+
+    public String getElementText(WebElement element) {
+        return element.getText();
     }
 
     public String getPageUrl() {
         return DriverManager.getDriver().getCurrentUrl();
     }
 
-    public LogInPage clickBtnAndReturnLogInPage(WebElement element) {
-        element.click();
-        return new LogInPage();
+    public String getTextByIDJSExecutor(String value) {
+        return JSExecutorUtil.getTextByID(value);
+    }
+
+    public void switchToFrame(WebElement element) {
+        DriverManager.getDriver().switchTo().frame(element);
+    }
+
+    public void switchToDefaultFrame() {
+        DriverManager.getDriver().switchTo().defaultContent();
     }
 
     public void sendTestKeys(WebElement element, String keys) {
         element.sendKeys(keys);
+    }
+
+    public LogInPage clickBtnAndReturnLogInPage(WebElement element) {
+        element.click();
+        return new LogInPage();
     }
 
     public RegistrationPage clickBtnAndReturnRegistrationPage(WebElement element) {

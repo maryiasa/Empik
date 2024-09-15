@@ -29,6 +29,8 @@ public class SearchPage extends Header {
     @FindBy(xpath = "(//*[@class = 'show-on-hover']/button)[1]")
     private WebElement addFirstItemToCartBtn;
 
+    private String noResultText = "\nnie możemy znaleźć wyników dla tego hasła.";
+
     public WebElement getSearchResultRow() {
         return searchResultRow;
     }
@@ -55,6 +57,10 @@ public class SearchPage extends Header {
 
     public WebElement getFirstItemCard() {
         return firstItemCard;
+    }
+
+    public String getNoResultText() {
+        return noResultText;
     }
 
     @Override
