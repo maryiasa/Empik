@@ -89,11 +89,10 @@ public class LogInPage extends HomePage {
 
     public HomePage clickNextBtn() throws Exception {
         String mainWnd = getPageUrl();
-        nextBtn.click();
-        Waiters.wait(7000);
-
         //throw exception if captcha is displayed
         try {
+            nextBtn.click();
+            Waiters.wait(3000);
             if (reCaptchaFrame.isDisplayed()) {
                 throw new CaptchaException();
             } else throw new CaptchaNotFound();
