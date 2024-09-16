@@ -5,6 +5,10 @@
         <classes>
             <class name="com.empik.functionalTests.LoginTest" >
             </class>
+            <class name="com.empik.functionalTests.CartTest" >
+            </class>
+            <class name="com.empik.functionalTests.RegistrationTest" >
+            </class>
             <class name="com.empik.functionalTests.SearchTest" >
             </class>
         </classes>
