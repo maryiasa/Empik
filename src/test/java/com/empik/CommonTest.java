@@ -2,7 +2,6 @@ package com.empik;
 
 import com.empik.listeners.TestNGListener;
 import com.empik.pages.HomePage;
-import com.empik.pages.Page;
 import com.empik.utils.DriverManager;
 import com.empik.utils.ScreenshotUtil;
 import lombok.extern.log4j.Log4j2;
@@ -12,7 +11,7 @@ import org.testng.annotations.Listeners;
 
 @Log4j2
 @Listeners(TestNGListener.class)
-public class CommonTest extends Page {
+public class CommonTest {
 
     @BeforeMethod
     public void setUpCommonTest() {

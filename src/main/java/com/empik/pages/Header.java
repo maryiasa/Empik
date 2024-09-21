@@ -3,7 +3,7 @@ package com.empik.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Header extends HomePage {
+public class Header extends Page {
 
     @FindBy(css = ".empikNav__userText.ta-login-link")
     private WebElement logInBtn;
