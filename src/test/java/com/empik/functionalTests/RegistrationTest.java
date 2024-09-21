@@ -1,6 +1,7 @@
 package com.empik.functionalTests;
 
 import com.empik.CommonTest;
+import com.empik.Constants;
 import com.empik.enums.TestValues;
 import com.empik.pages.Header;
 import com.empik.pages.RegistrationPage;
@@ -35,7 +36,7 @@ public class RegistrationTest extends CommonTest {
 
     @Test
     public void negativeRegistrationNewUser() throws Exception {
-        Assert.assertTrue(registrationPage.getPageUrl().contains(getRegistrationPageUrl()));
+        Assert.assertTrue(registrationPage.getPageUrl().contains(Constants.REGISTRATION_URL));
         Assert.assertTrue(registrationPage.getUserRegistrationFormName().getText().equals(registrationPage.getPageName()));
 
         Faker faker = new Faker();
@@ -54,7 +55,7 @@ public class RegistrationTest extends CommonTest {
 
     @Test
     public void negativeRegistrationWithExistUserData() throws Exception {
-        Assert.assertTrue(registrationPage.getPageUrl().contains(getRegistrationPageUrl()));
+        Assert.assertTrue(registrationPage.getPageUrl().contains(Constants.REGISTRATION_URL));
         Assert.assertTrue(registrationPage.getUserRegistrationFormName().getText().equals(registrationPage.getPageName()));
 
         registrationPage.sendTestKeys(registrationPage.getUserRegistrationEmailInput(), testEmail);

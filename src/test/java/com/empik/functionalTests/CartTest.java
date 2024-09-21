@@ -29,7 +29,7 @@ public class CartTest extends CommonTest {
         String itemInfoSearch = searchPage.getElementText(searchPage.getFirstItemTitle());
         ActionsUtil.scroll(searchPage.getForthItemCard());
         ActionsUtil.hoverAndClick(searchPage.getFirstItemCard(), searchPage.getAddFirstItemToCartBtn());
-        CartPage cartPage = searchPage.clickBtnAndReturnCartPage(searchPage.getCartBtn());
+        CartPage cartPage = homePageHeader.clickBtnAndReturnCartPage(homePageHeader.getCartBtn());
         Assert.assertEquals(itemInfoSearch, cartPage.getElementText(cartPage.getItemTitle()));
 
     }

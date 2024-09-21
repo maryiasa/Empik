@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.Objects;
 
 @Log4j2
-public class LogInPage extends HomePage {
+public class LogInPage extends Page {
 
     private static final Logger log = LogManager.getLogger(LogInPage.class);
 
@@ -87,12 +87,12 @@ public class LogInPage extends HomePage {
         return EmailAlertText;
     }
 
-    public HomePage clickNextBtn() throws Exception {
+    public Page clickNextBtn() throws Exception {
         String mainWnd = getPageUrl();
         //throw exception if captcha is displayed
         try {
             nextBtn.click();
-            Waiters.wait(3000);
+            Waiters.wait(7000);
             if (reCaptchaFrame.isDisplayed()) {
                 throw new CaptchaException();
             } else throw new CaptchaNotFound();

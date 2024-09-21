@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchPage extends Header {
+public class SearchPage extends Page {
 
     private static final Logger log = LogManager.getLogger(SearchPage.class);
     @FindBy(css = ".js-searchHeader")

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Log4j2
-public class RegistrationPage extends HomePage {
+public class RegistrationPage extends Page {
 
     private static final Logger log = LogManager.getLogger(RegistrationPage.class);
 

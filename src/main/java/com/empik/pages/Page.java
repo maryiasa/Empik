@@ -1,5 +1,6 @@
 package com.empik.pages;
 
+import com.empik.Constants;
 import com.empik.utils.DriverManager;
 import com.empik.utils.JSExecutorUtil;
 import org.openqa.selenium.WebElement;
@@ -7,23 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
 
-    private final String homePageUrl = "https://www.empik.com/";
-    private final String registrationPageUrl = "https://www.empik.com/rejestracja?continue=%2F";
-
-    public String getHomePageUrl() {
-        return homePageUrl;
-    }
-
-    public String getRegistrationPageUrl() {
-        return registrationPageUrl;
-    }
-
     public Page() {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
     public void open() {
-        DriverManager.getDriver().get(getHomePageUrl());
+        DriverManager.getDriver().get(Constants.HOME_URL);
     }
 
     public String getElementText(WebElement element) {
