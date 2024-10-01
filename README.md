@@ -75,6 +75,8 @@ Make sure you have Selenium Server running. You can start it using the following
 java -jar selenium-server-standalone-x.xx.x.jar
 ```
 Replace x.xx.x with the version you have downloaded.
+
+
 2. Ensure that your TestNG configuration or your WebDriver setup is pointed to the Selenium Server URL (usually http://localhost:4444/ui/).
 
 
