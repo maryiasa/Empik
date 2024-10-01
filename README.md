@@ -2,8 +2,6 @@
 
 This project is designed for automated testing of UI and APIs using a combination of cutting-edge technologies for [Empik.com](https://www.empik.com/) site. The primary focus is on providing a robust, scalable, and maintainable testing framework.
 
-***
-
 ## Technologies Used
 
 - **Java**: The primary programming language used for the project.
@@ -18,11 +16,10 @@ This project is designed for automated testing of UI and APIs using a combinatio
 - **Jenkins**: For continuous integration and continuous deployment (CI/CD).
 - **Allure Report**: For generating comprehensive test reports.
 - **GitHub**: For version control and collaboration.
-***
 
 ## Project Structure
 
-## src
+### src
 ### main
 #### java:
 ##### * enums: PropertiesValues, TestValues
@@ -47,11 +44,10 @@ This project is designed for automated testing of UI and APIs using a combinatio
 ##### * json: addProductsToCart, getChatBotJsonSchema, getGamJsonSchema, getLimitsConfigurationJsonSchema, getPopularCategoriesJsonSchema, postAddItemToCartJsonSchema, postCartItemQuantityIncreaseJsonSchema, putSnapshotsJsonSchema, quantityDecrease, quantityIncrease, snapshots, testBody
 ##### * testSuites: apiTS, functionalTS
 
-## .gitignore
-## pom.xml
-## README.md
+### .gitignore
+### pom.xml
+### README.md
 
-***
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -61,7 +57,7 @@ Before you begin, ensure you have the following installed:
 - **Selenium Server** (for running Remote Selenium WebDriver)
 - **Docker** (for containerization)
 - **Jenkins** (for CI/CD)
-***
+
 ## Getting Started
 
 ### Clone the Repository
@@ -79,6 +75,8 @@ Make sure you have Selenium Server running. You can start it using the following
 java -jar selenium-server-standalone-x.xx.x.jar
 ```
 Replace x.xx.x with the version you have downloaded.
+
+
 2. Ensure that your TestNG configuration or your WebDriver setup is pointed to the Selenium Server URL (usually http://localhost:4444/ui/).
 
 
@@ -112,8 +110,11 @@ allure serve
 
 ### Logging
 This project uses Log4j2 for logging during test execution. Configure the logging settings in the log4j2.properties file located in the src/java/resources directory.
+You can find the execution logs in the logs folder in the project directory.
 
 ### Test Data
 testConfiguration.properties file is used for managing test data for UI tests.
+
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
+
 JSON files are utilized for managing test data for Api tests.
