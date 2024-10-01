@@ -4,7 +4,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y nano
 RUN mkdir -p /usr/local/empik
-COPY . /usr/local/empik
+COPY ../../.. /usr/local/empik
 RUN ls
 RUN apt update
 RUN apt install wget

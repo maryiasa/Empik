@@ -29,11 +29,6 @@ public class LoginTest extends CommonTest {
         logInPage = homePageHeader.clickBtnAndReturnLogInPage(homePageHeader.getLogInBtn());
         Assert.assertEquals(logInPage.getElementText(logInPage.getLoginPageName()), logInPage.getPageNameEmail());
     }
-//delete this method after debug
-    @Test
-    public void positiveCheck() {
-        logInPage.sendTestKeys(logInPage.getUserEmailInput(), email);
-    }
 
     @Test
     public void negativeLogInUserRegistered() throws Exception {
