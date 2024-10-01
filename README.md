@@ -117,4 +117,4 @@ testConfiguration.properties file is used for managing test data for UI tests.
 
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
 
-SON files are utilized for managing test data for Api tests.
+JSON files are utilized for managing test data for Api tests.
