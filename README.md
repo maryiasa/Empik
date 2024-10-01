@@ -19,7 +19,7 @@ This project is designed for automated testing of UI and APIs using a combinatio
 
 ## Project Structure
 
-## src
+### src
 ### main
 #### java:
 ##### * enums: PropertiesValues, TestValues
@@ -44,9 +44,9 @@ This project is designed for automated testing of UI and APIs using a combinatio
 ##### * json: addProductsToCart, getChatBotJsonSchema, getGamJsonSchema, getLimitsConfigurationJsonSchema, getPopularCategoriesJsonSchema, postAddItemToCartJsonSchema, postCartItemQuantityIncreaseJsonSchema, putSnapshotsJsonSchema, quantityDecrease, quantityIncrease, snapshots, testBody
 ##### * testSuites: apiTS, functionalTS
 
-## .gitignore
-## pom.xml
-## README.md
+### .gitignore
+### pom.xml
+### README.md
 
 ## Prerequisites
 
