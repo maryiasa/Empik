@@ -110,8 +110,11 @@ allure serve
 
 ### Logging
 This project uses Log4j2 for logging during test execution. Configure the logging settings in the log4j2.properties file located in the src/java/resources directory.
+You can find the execution logs in the logs folder in the project directory.
 
 ### Test Data
 testConfiguration.properties file is used for managing test data for UI tests.
+
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
-JSON files are utilized for managing test data for Api tests.
+
+SON files are utilized for managing test data for Api tests.
