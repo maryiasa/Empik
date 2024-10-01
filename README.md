@@ -2,8 +2,6 @@
 
 This project is designed for automated testing of UI and APIs using a combination of cutting-edge technologies for [Empik.com](https://www.empik.com/) site. The primary focus is on providing a robust, scalable, and maintainable testing framework.
 
-***
-
 ## Technologies Used
 
 - **Java**: The primary programming language used for the project.
@@ -18,7 +16,6 @@ This project is designed for automated testing of UI and APIs using a combinatio
 - **Jenkins**: For continuous integration and continuous deployment (CI/CD).
 - **Allure Report**: For generating comprehensive test reports.
 - **GitHub**: For version control and collaboration.
-***
 
 ## Project Structure
 
@@ -51,7 +48,6 @@ This project is designed for automated testing of UI and APIs using a combinatio
 ## pom.xml
 ## README.md
 
-***
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -61,7 +57,7 @@ Before you begin, ensure you have the following installed:
 - **Selenium Server** (for running Remote Selenium WebDriver)
 - **Docker** (for containerization)
 - **Jenkins** (for CI/CD)
-***
+
 ## Getting Started
 
 ### Clone the Repository
