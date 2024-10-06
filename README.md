@@ -65,8 +65,8 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/maryiasa/Empik.git
-cd [your-project-directory]
 ```
+
 
 ### Running Tests with Selenium Server
 1. Start Selenium Server:
@@ -109,9 +109,10 @@ Run Jenkins from the folder where it is installed.
 3. Set up Jenkins:
 
   - 3.1. Install Allure plugin:
-    Manage Jenkins → Manage Plugins → Available plugins → Allure →  Install without restart
+    Manage Jenkins → Plugins → Available plugins → Allure →  Install without restart
   - 3.2. Change the tools configurations:
-    Manage Jenkins → Tools → scroll down to 'Allure Commandline installations' → set up name 'Allure' → Install automatically is checked → Version 2.30.0
+    Manage Jenkins → Tools → Scroll down to 'Allure Commandline installations' → Set up name 'Allure' → Install automatically is checked → Version 2.30.0
+  - Click on [Save]
 
 
 4. Job creation:
@@ -153,13 +154,12 @@ Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
 1. Build the image from the Dockerfile
 
 ```bash
-docker build -t empik:1.0 {ROJECT_ROOT}/Empik/src/main/resources/
+docker build -t empik:1.0 [your-project-directory]/Empik/src/main/resources/
 ```
 OR if you are in the folder where docker file is located, use the next command:
 ```bash
 docker build -t empik:1.0 .
 ```
-{PROJECT_ROOT} is folder to which you cloned the project
 
 2. Run the image
 ```bash
@@ -184,23 +184,25 @@ docker logs {container ID}
    So, for the next log in you should use: username: admin; password: {Jenkins password}
   - 5.3. Install Allure plugin:
 
-    Manage Jenkins → Manage Plugins → Available plugins → Allure →  Install without restart
+    Manage Jenkins → Plugins → Available plugins → Allure →  Install without restart
   - 5.4. Change the tools configurations:
 
-    Manage Jenkins → Tools -> scroll down to 'Maven installations' -> set up name 'Maven' -> Install automatically is checked -> Version 3.9.9
+    Manage Jenkins → Tools:
+    - 'Maven installations' -> name: 'Maven' -> 'Install automatically' is checked -> Version 3.9.9 
+    - 'Allure Commandline installations' → name: 'Allure' → 'Install automatically' is checked → Version 2.30.0
+    - Click on [Save]
 
-    Manage Jenkins → Tools → scroll down to 'Allure Commandline installations' → set up name 'Allure' → Install automatically is checked → Version 2.30.0
 
 6. Job creation:
   - 6.1. Go to Dashboard
   - 6.2. Click on [New Item] → Set up the name (e.g. Empik-FunctionalTS) → Pipeline
   - 6.3. Fill up the description (optional)
-  - 6.4. Define the pipeline:
+  - 6.4. Go to Pipeline section to define the pipeline:
     - Choose 'Pipeline script from SCM' → SCM: 'Git' → Repository URL: https://github.com/maryiasa/Empik.git → Branch Specifier: */main
 
-    - Script Path: 'src/test/resources/jenkinsFiles/{JenkinsFileName} (e.g. jfAPI)
+    - Script Path: 'src/test/resources/jenkinsFiles/{JenkinsFileName} (e.g. jfAPITS)
 
-    - Save the changes
+    - Click on [Save]
 
 7. Run the Job:
   - 7.1. Go to Dashboard
@@ -209,7 +211,8 @@ docker logs {container ID}
 
 
 ### Viewing Allure Reports in Jenkins
-After running the tests, click on 'Allure Report' to see the results
+After running the tests, click on the latest job execution in the Build history menu.
+Click on 'Allure Report' to see the results.
 
 
 ### API Test Validation with JSON Schema
