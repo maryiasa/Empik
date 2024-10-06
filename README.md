@@ -41,6 +41,7 @@ This project is designed for automated testing of UI and APIs using a combinatio
 ##### * functionalTest: CartTest, LoginTest, RegistrationTest, SearchTest
 ##### * CommonTest
 #### resources:
+##### * jenkins files: jfAPI
 ##### * json: addProductsToCart, getChatBotJsonSchema, getGamJsonSchema, getLimitsConfigurationJsonSchema, getPopularCategoriesJsonSchema, postAddItemToCartJsonSchema, postCartItemQuantityIncreaseJsonSchema, putSnapshotsJsonSchema, quantityDecrease, quantityIncrease, snapshots, testBody
 ##### * testSuites: apiTS, functionalTS
 
@@ -74,7 +75,7 @@ Make sure you have Selenium Server running. You can start it using the following
 ```bash
 java -jar selenium-server-standalone-x.xx.x.jar
 ```
-Replace x.xx.x with the version you have downloaded.
+Replace x.xx.x with the version you have downloaded. Run from the folder where Selenium Server is installed.
 
 
 2. Ensure that your TestNG configuration or your WebDriver setup is pointed to the Selenium Server URL (usually http://localhost:4444/ui/).
@@ -82,9 +83,134 @@ Replace x.xx.x with the version you have downloaded.
 
 3. Run Tests:
 ```bash
-mvn test -Dsuite=functionalTS
-mvn test -Dsuite=apiTS
+mvn test -Dsuite={testSuiteName}
 ```
+Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
+
+### Viewing Allure Reports locally
+After running the tests, you can generate and view Allure reports in your browser:
+```bash
+cd target
+allure serve
+```
+
+### Running Tests with Jenkins
+1. Start Jenkins:
+
+Make sure you have Jenkins running. You can start it using the following command:
+```bash
+java -jar jenkins.war
+```
+Run Jenkins from the folder where it is installed.
+
+2. Go to Jenkins http://localhost:8080/
+
+
+3. Set up Jenkins:
+
+  - 3.1. Install Allure plugin:
+    Manage Jenkins → Manage Plugins → Available plugins → Allure →  Install without restart
+  - 3.2. Change the tools configurations:
+    Manage Jenkins → Tools → scroll down to 'Allure Commandline installations' → set up name 'Allure' → Install automatically is checked → Version 2.30.0
+
+
+4. Job creation:
+
+  - 4.1. Go to Dashboard
+  - 4.2. Click on [New Item] → Set up the name (e.g. Empik-FunctionalTS) → Freestyle project
+  - 4.3. Fill up the description (optional)
+  - 4.4. Choose 'This project is parameterised' → Add Parameter → Choice parameter
+
+→ name:
+```bash
+browser
+```
+→ choices:
+```bash
+chrome
+firefox
+```
+
+  - 4.5. Source Code Management → Git → Repository URL: https://github.com/maryiasa/Empik.git → Branches to build: */main
+  - 4.6. Build Steps → Add Build step → Execute shell →
+```bash
+mvn test -Dsuite={testSuiteName} -Dbrowser=${browser}
+```
+Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
+
+  - 4.7. Post-build Actions → Add post-build action → Allure Report → Path: target/allure-results
+  - 4.8 Save the changes
+
+
+5. Run the Job:
+
+ - 5.1. Go to Dashboard
+ - 5.2. Click on the Name of the job you want to run
+ - 5.3. Click on the 'Build with Parameters' on the left side menu → Choose the browser → Click on [Build]
+
+
+### Running Tests with Jenkins inside the Docker container
+1. Build the image from the Dockerfile
+
+```bash
+docker build -t empik:1.0 {ROJECT_ROOT}/Empik/src/main/resources/
+```
+OR if you are in the folder where docker file is located, use the next command:
+```bash
+docker build -t empik:1.0 .
+```
+{PROJECT_ROOT} is folder to which you cloned the project
+
+2. Run the image
+```bash
+docker run -d -p 8082:8080 empik:1.0
+```
+Check if container has been run and find the container ID
+```bash
+docker ps
+```
+
+3. Go to logs to find the {Jenkins password}
+```bash
+docker logs {container ID}
+```
+
+4. Go to Jenkins http://localhost:8082/
+
+
+5. Set up Jenkins:
+  - 5.1. Paste the {Jenkins password}
+  - 5.2. Choose 'Install suggested plugins' → 'Skip and continue as admin' → You will see - http://localhost:8082/ → 'Save and finish'
+   So, for the next log in you should use: username: admin; password: {Jenkins password}
+  - 5.3. Install Allure plugin:
+
+    Manage Jenkins → Manage Plugins → Available plugins → Allure →  Install without restart
+  - 5.4. Change the tools configurations:
+
+    Manage Jenkins → Tools -> scroll down to 'Maven installations' -> set up name 'Maven' -> Install automatically is checked -> Version 3.9.9
+
+    Manage Jenkins → Tools → scroll down to 'Allure Commandline installations' → set up name 'Allure' → Install automatically is checked → Version 2.30.0
+
+6. Job creation:
+  - 6.1. Go to Dashboard
+  - 6.2. Click on [New Item] → Set up the name (e.g. Empik-FunctionalTS) → Pipeline
+  - 6.3. Fill up the description (optional)
+  - 6.4. Define the pipeline:
+    - Choose 'Pipeline script from SCM' → SCM: 'Git' → Repository URL: https://github.com/maryiasa/Empik.git → Branch Specifier: */main
+
+    - Script Path: 'src/test/resources/jenkinsFiles/{JenkinsFileName} (e.g. jfAPI)
+
+    - Save the changes
+
+7. Run the Job:
+  - 7.1. Go to Dashboard
+  - 7.2. Click on the Name of the job you want to run
+  - 7.3. Click on the 'Build Now' on the left side menu
+
+
+### Viewing Allure Reports in Jenkins
+After running the tests, click on 'Allure Report' to see the results
+
 
 ### API Test Validation with JSON Schema
 This project validates API responses using JSON Schemes. Ensure that your JSON Schema files are located in the src/test/resources/json directory.
@@ -101,13 +227,6 @@ given()
     .body(matchesJsonSchemaInClasspath("schema.json"));
 ```
 
-### Viewing Allure Reports
-After running the tests, you can generate and view Allure reports in your browser:
-```bash
-cd target
-allure serve
-```
-
 ### Logging
 This project uses Log4j2 for logging during test execution. Configure the logging settings in the log4j2.properties file located in the src/java/resources directory.
 You can find the execution logs in the logs folder in the project directory.
@@ -118,3 +237,4 @@ testConfiguration.properties file is used for managing test data for UI tests.
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
 
 JSON files are utilized for managing test data for Api tests.
+
