@@ -5,6 +5,17 @@ pipeline {
         maven "Maven"
     }
 
+    stage(“reading properties from properties file”) {
+        steps {
+            // Use a script block to do custom scripting
+            script {
+                def props = readProperties file: 'configuration.properties'
+                env.browser = props.browser
+            }
+            echo "browser  is $browser"
+        }
+    }
+
     stages {
         stage('Build') {
             steps {
