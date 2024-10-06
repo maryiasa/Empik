@@ -5,24 +5,13 @@ pipeline {
         maven "Maven"
     }
 
-    stage('reading file') {
-        steps {
-            // Use a script block to do custom scripting
-            script {
-                def props = readProperties file: 'configuration.properties'
-                env.browser = props.browser
-            }
-            echo "browser  is $browser"
-        }
-    }
-
     stages {
         stage('Build') {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/maryiasa/Empik.git'
 
-                sh "mvn test -Dsuite=functionalTS -Dbrowser=${browser}"
+                sh "mvn test -Dsuite=functionalTS -Dbrowser=${params.browser}"
 
             }
 
