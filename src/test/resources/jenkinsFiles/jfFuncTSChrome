@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'main',
                     url: 'https://github.com/maryiasa/Empik.git'
 
-                sh "mvn test -Dsuite=functionalTS -Dbrowser=$chrome"
+                sh "mvn test -Dsuite=functionalTS -Dbrowser=chrome"
 
             }
 
