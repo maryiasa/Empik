@@ -5,7 +5,7 @@ pipeline {
         maven "Maven"
     }
 
-    stage(“reading properties from properties file”) {
+    stage('reading file') {
         steps {
             // Use a script block to do custom scripting
             script {
