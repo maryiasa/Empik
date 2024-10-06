@@ -109,14 +109,15 @@ Run Jenkins from the folder where it is installed.
 3. Set up Jenkins:
 
   - 3.1. Install Allure plugin:
+
     Manage Jenkins → Plugins → Available plugins → Allure →  Install without restart
   - 3.2. Change the tools configurations:
-    Manage Jenkins → Tools → Scroll down to 'Allure Commandline installations' → Set up name 'Allure' → Install automatically is checked → Version 2.30.0
+
+    Manage Jenkins → Tools → Scroll down to 'Allure Commandline installations' → name: 'Allure' → 'Install automatically' is checked → Version 2.30.0
   - Click on [Save]
 
 
 4. Job creation:
-
   - 4.1. Go to Dashboard
   - 4.2. Click on [New Item] → Set up the name (e.g. Empik-FunctionalTS) → Freestyle project
   - 4.3. Fill up the description (optional)
@@ -132,19 +133,18 @@ chrome
 firefox
 ```
 
-  - 4.5. Source Code Management → Git → Repository URL: https://github.com/maryiasa/Empik.git → Branches to build: */main
-  - 4.6. Build Steps → Add Build step → Execute shell →
+  - 4.5. Go to 'Source Code Management' section → Git → Repository URL: https://github.com/maryiasa/Empik.git → Branches to build: */main
+  - 4.6. Go to 'Build Steps' → Add Build step → Execute shell →
 ```bash
 mvn test -Dsuite={testSuiteName} -Dbrowser=${browser}
 ```
 Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
 
-  - 4.7. Post-build Actions → Add post-build action → Allure Report → Path: target/allure-results
-  - 4.8 Save the changes
+  - 4.7. Go to 'Post-build Actions' section → Add post-build action → Allure Report → Path: target/allure-results
+  - 4.8. Click on [Save]
 
 
 5. Run the Job:
-
  - 5.1. Go to Dashboard
  - 5.2. Click on the Name of the job you want to run
  - 5.3. Click on the 'Build with Parameters' on the left side menu → Choose the browser → Click on [Build]
@@ -188,7 +188,7 @@ docker logs {container ID}
   - 5.4. Change the tools configurations:
 
     Manage Jenkins → Tools:
-    - 'Maven installations' -> name: 'Maven' -> 'Install automatically' is checked -> Version 3.9.9 
+    - 'Maven installations' → name: 'Maven' → 'Install automatically' is checked → Version 3.9.9 
     - 'Allure Commandline installations' → name: 'Allure' → 'Install automatically' is checked → Version 2.30.0
     - Click on [Save]
 
@@ -197,10 +197,19 @@ docker logs {container ID}
   - 6.1. Go to Dashboard
   - 6.2. Click on [New Item] → Set up the name (e.g. Empik-FunctionalTS) → Pipeline
   - 6.3. Fill up the description (optional)
-  - 6.4. Go to Pipeline section to define the pipeline:
-    - Choose 'Pipeline script from SCM' → SCM: 'Git' → Repository URL: https://github.com/maryiasa/Empik.git → Branch Specifier: */main
-
-    - Script Path: 'src/test/resources/jenkinsFiles/{JenkinsFileName} (e.g. jfAPITS)
+  - 6.4. (For web tests only) Choose 'This project is parameterised' → Add Parameter → Choice parameter (browser: chrome, firefox)
+  - 6.5. Go to 'Pipeline' section to define the pipeline:
+    - Definition: 'Pipeline script from SCM'
+      - SCM: 'Git'
+        - Repositories
+          - Repository URL: https://github.com/maryiasa/Empik.git
+        - Branches to build
+          - Branch Specifier: */main
+      - Script Path: 
+      ```
+      src/test/resources/jenkinsFiles/{JenkinsFileName}
+      ```
+      {JenkinsFileName} (e.g. jfAPITS, jfFuncTS and etc.)
 
     - Click on [Save]
 
