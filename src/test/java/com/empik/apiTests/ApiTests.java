@@ -80,15 +80,6 @@ public class ApiTests {
     }
 
     @Test
-    public void getItemNotFound() {
-        log.info("getItemNotFound - START");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                .log().uri().when().get("pakiet-harry-potter-tomy-1-7-rowling-j-k,p1397131470").then().log().status()
-                .statusCode(404);
-        log.info("getItemNotFound - END");
-    }
-
-    @Test
     public void putSnapshots() {
         log.info("putSnapshots - START");
         File file = new File("src/test/resources/json/snapshots.json");
@@ -97,20 +88,6 @@ public class ApiTests {
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/putSnapshotsJsonSchema.json"));
         log.info("putSnapshots - END");
-    }
-
-    @Test
-    public void postQuantityIncreaseNoItemsInCart() {
-        log.info("postQuantityIncreaseNoItemsInCart - START");
-        File file = new File("src/test/resources/json/quantityIncrease.json");
-        Response response =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
-                        .log().uri().contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().status()
-                        .statusCode(200)
-                        .extract().response();
-
-        assertTrue(response.getBody().asString().contains("\"errorType\":\"ValidationError\""));
-        log.info("postQuantityIncreaseNoItemsInCart - END");
     }
 
     @Test

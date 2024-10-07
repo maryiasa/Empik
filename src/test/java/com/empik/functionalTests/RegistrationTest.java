@@ -35,7 +35,7 @@ public class RegistrationTest extends CommonTest {
     }
 
     @Test
-    public void negativeRegistrationNewUser() throws Exception {
+    public void positiveRegistrationNewUser() throws Exception {
         Assert.assertTrue(registrationPage.getPageUrl().contains(Constants.REGISTRATION_URL));
         Assert.assertTrue(registrationPage.getUserRegistrationFormName().getText().equals(registrationPage.getPageName()));
 

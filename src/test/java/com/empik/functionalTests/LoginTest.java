@@ -31,7 +31,7 @@ public class LoginTest extends CommonTest {
     }
 
     @Test
-    public void negativeLogInUserRegistered() throws Exception {
+    public void positiveLogInUserRegistered() throws Exception {
         logInPage.sendTestKeys(logInPage.getUserEmailInput(), email);
         Waiters.wait(5000);
         LogInPage logInPage1 = (LogInPage) logInPage.clickNextBtn();
