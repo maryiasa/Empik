@@ -59,6 +59,18 @@ Before you begin, ensure you have the following installed:
 - **Docker** (for containerization)
 - **Jenkins** (for CI/CD)
 
+## Content
+* Getting Started
+* Running Tests with Selenium Server
+* Viewing Allure Reports locally
+* Running Tests with Jenkins
+* Running Tests with Jenkins inside the Docker container
+* Viewing Allure Reports in Jenkins
+* API Test Validation with JSON Schema
+* Logging
+* Test Data Configuration
+
+
 ## Getting Started
 
 ### Clone the Repository
@@ -140,7 +152,10 @@ mvn test -Dsuite={testSuiteName} -Dbrowser=${browser}
 ```
 Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
 
-  - 4.7. Go to 'Post-build Actions' section → Add post-build action → Allure Report → Path: target/allure-results
+  - 4.7. Go to 'Post-build Actions' section → Add post-build action → Allure Report → Path:
+  ```bash
+  - target/allure-results
+  ```
   - 4.8. Click on [Save]
 
 
@@ -165,7 +180,7 @@ docker build -t empik:1.0 .
 ```bash
 docker run -d -p 8082:8080 empik:1.0
 ```
-Check if container has been run and find the container ID
+Check if the container has been run and find the container ID
 ```bash
 docker ps
 ```
@@ -181,7 +196,10 @@ docker logs {container ID}
 5. Set up Jenkins:
   - 5.1. Paste the {Jenkins password}
   - 5.2. Choose 'Install suggested plugins' → 'Skip and continue as admin' → You will see - http://localhost:8082/ → 'Save and finish'
-   So, for the next log in you should use: username: admin; password: {Jenkins password}
+  
+    So, for the next log in you should use:
+    - username: admin;
+    - password: {Jenkins password}
   - 5.3. Install Allure plugin:
 
     Manage Jenkins → Plugins → Available plugins → Allure →  Install without restart
@@ -243,7 +261,7 @@ given()
 This project uses Log4j2 for logging during test execution. Configure the logging settings in the log4j2.properties file located in the src/java/resources directory.
 You can find the execution logs in the logs folder in the project directory.
 
-### Test Data
+### Test Data Configuration
 testConfiguration.properties file is used for managing test data for UI tests.
 
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
