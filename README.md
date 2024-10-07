@@ -62,10 +62,10 @@ Before you begin, ensure you have the following installed:
 ## Content
 * Getting Started
 * Running Tests with Selenium Server
-* Viewing Allure Reports locally
+* Viewing Allure Report locally
 * Running Tests with Jenkins
 * Running Tests with Jenkins inside the Docker container
-* Viewing Allure Reports in Jenkins
+* Viewing Allure Report in Jenkins
 * API Test Validation with JSON Schema
 * Logging
 * Test Data Configuration
@@ -80,7 +80,7 @@ git clone https://github.com/maryiasa/Empik.git
 ```
 
 
-### Running Tests with Selenium Server
+## Running Tests with Selenium Server
 1. Start Selenium Server:
 
 Make sure you have Selenium Server running. You can start it using the following command:
@@ -99,14 +99,14 @@ mvn test -Dsuite={testSuiteName}
 ```
 Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
 
-### Viewing Allure Reports locally
+## Viewing Allure Report locally
 After running the tests, you can generate and view Allure reports in your browser:
 ```bash
 cd target
 allure serve
 ```
 
-### Running Tests with Jenkins
+## Running Tests with Jenkins
 1. Start Jenkins:
 
 Make sure you have Jenkins running. You can start it using the following command:
@@ -165,7 +165,7 @@ Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
  - 5.3. Click on the 'Build with Parameters' on the left side menu → Choose the browser → Click on [Build]
 
 
-### Running Tests with Jenkins inside the Docker container
+## Running Tests with Jenkins inside the Docker container
 1. Build the image from the Dockerfile
 
 ```bash
@@ -237,12 +237,12 @@ docker logs {container ID}
   - 7.3. Click on the 'Build Now' on the left side menu
 
 
-### Viewing Allure Reports in Jenkins
+## Viewing Allure Report in Jenkins
 After running the tests, click on the latest job execution in the Build history menu.
 Click on 'Allure Report' to see the results.
 
 
-### API Test Validation with JSON Schema
+## API Test Validation with JSON Schema
 This project validates API responses using JSON Schemes. Ensure that your JSON Schema files are located in the src/test/resources/json directory.
 
 Create JSON Schema: Define your JSON Schema to match the expected structure of the API response.
@@ -257,11 +257,11 @@ given()
     .body(matchesJsonSchemaInClasspath("schema.json"));
 ```
 
-### Logging
+## Logging
 This project uses Log4j2 for logging during test execution. Configure the logging settings in the log4j2.properties file located in the src/java/resources directory.
 You can find the execution logs in the logs folder in the project directory.
 
-### Test Data Configuration
+## Test Data Configuration
 testConfiguration.properties file is used for managing test data for UI tests.
 
 JavaFaker is employed to generate realistic fake data during tests. You can customize the fake data generation as needed in your test classes.
