@@ -8,14 +8,14 @@ This project is designed for automated testing of UI and APIs using a combinatio
 - **Maven**: For managing project dependencies and build lifecycle.
 - **Selenium**: For browser automation and UI testing.
 - **TestNG**: For test execution and management.
+- **REST-Assured**: For API testing.
+- **Docker**: For containerization, ensuring a consistent testing environment.
+- **Jenkins**: For continuous integration and continuous deployment (CI/CD).
+- **GitHub**: For version control and collaboration.
+- **Allure Report**: For generating comprehensive test reports.
 - **Lombok**: For reducing boilerplate code in Java.
 - **Log4j**: For logging information during test execution.
 - **JavaFaker**: For generating fake data for testing purposes.
-- **RestAssured**: For API testing.
-- **Docker**: For containerization, ensuring a consistent testing environment.
-- **Jenkins**: For continuous integration and continuous deployment (CI/CD).
-- **Allure Report**: For generating comprehensive test reports.
-- **GitHub**: For version control and collaboration.
 
 ## Project Structure
 
@@ -64,7 +64,7 @@ Before you begin, ensure you have the following installed:
 * Running Tests with Selenium Server
 * Viewing Allure Report locally
 * Running Tests with Jenkins
-* Running Tests with Jenkins inside the Docker container
+* Running Api Tests with Jenkins inside the Docker container
 * Viewing Allure Report in Jenkins
 * API Test Validation with JSON Schema
 * Logging
@@ -165,7 +165,7 @@ Change the {testSuiteName} before run (e.g. functionalTS, apiTS).
  - 5.3. Click on the 'Build with Parameters' on the left side menu → Choose the browser → Click on [Build]
 
 
-## Running Tests with Jenkins inside the Docker container
+## Running Api Tests with Jenkins inside the Docker container
 1. Build the image from the Dockerfile
 
 ```bash
