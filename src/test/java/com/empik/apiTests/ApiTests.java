@@ -1,6 +1,7 @@
 package com.empik.apiTests;
 
 import com.empik.utils.CookieHandlerUtil;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.config.LogConfig;
 import io.restassured.filter.log.LogDetail;
@@ -41,7 +42,9 @@ public class ApiTests {
     @Test
     public void getPopularCategories() {
         log.info("getPopularCategories - START");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().queryParam("limit", 5).when().get("ajax/diuna/popularCategories").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getPopularCategoriesJsonSchema.json"));
@@ -51,7 +54,9 @@ public class ApiTests {
     @Test
     public void getGam() {
         log.info("getGam - START");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().when().get("ajax2/gam").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getGamJsonSchema.json"));
@@ -61,7 +66,9 @@ public class ApiTests {
     @Test
     public void getChatBot () {
         log.info("getChatBot - START");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().when().get("https://waw.chat.getzowie.com/api/v1/herochat-plugin/instances/55ba5f792e694813b99f99671946396a/multilingual/livechat")
                 .then().log().status()
                 .statusCode(200)
@@ -72,7 +79,9 @@ public class ApiTests {
     @Test
     public void getLimitsConfiguration() {
         log.info("getLimitsConfiguration - START");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().queryParam("sourceSystemChannel", "PORTAL_DESKTOP").when().get("gateway/api/carts/limits-configuration").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/getLimitsConfigurationJsonSchema.json"));
@@ -83,7 +92,9 @@ public class ApiTests {
     public void putSnapshots() {
         log.info("putSnapshots - START");
         File file = new File("src/test/resources/json/snapshots.json");
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().contentType(ContentType.JSON).body(file).when().put("gateway/api/kotoserver/snapshots").then().log().status()
                 .statusCode(200)
                 .assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/putSnapshotsJsonSchema.json"));
@@ -95,7 +106,9 @@ public class ApiTests {
         log.info("postAddItemToCart - START");
         File file = new File("src/test/resources/json/addProductsToCart.json");
         Response postAddItemToCart =
-                given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+                given()
+                        .filter(new AllureRestAssured())
+                        .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                         .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(file).when().post("gateway/api/graphql/cart").then().log().status()
                         .statusCode(200).assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/postAddItemToCartJsonSchema.json"))
                         .extract().response();
@@ -116,7 +129,9 @@ public class ApiTests {
         File quantityIncrease = new File("src/test/resources/json/quantityIncrease.json");
         postAddItemToCart();
         Response increaseItemQuantity =
-        given().config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
+        given()
+                .filter(new AllureRestAssured())
+                .config(RestAssured.config().logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)))
                 .log().uri().cookie(pageCookie).contentType(ContentType.JSON).body(quantityIncrease).when().post("gateway/api/graphql/cart").then().log().status()
                 .statusCode(200).assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json/postCartItemQuantityIncreaseJsonSchema.json"))
                 .extract().response();
