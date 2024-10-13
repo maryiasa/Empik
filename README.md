@@ -25,7 +25,7 @@ This project is designed for automated testing of UI and APIs using a combinatio
 ##### * enums: PropertiesValues, TestValues
 ##### * exceptions: CaptchaException, CaptchaNotFound
 ##### * listeners: SeleniumListener, TestNGListener
-##### * pages: CartPage, Header, HomePage, ItemPage, LogInPage, Page, RegistrationPage, SearchPage
+##### * pages: CartPage, Header, HomePage, LogInPage, Page, RegistrationPage, SearchPage
 ##### * utils: ActionsUtil, ConfigurationReader, CookieHandlerUtil, DriverFactory, DriverManager, JSExecutorUtil, ScreenshotUtil, Waiters
 ##### * Constants
 #### resources:
@@ -39,9 +39,10 @@ This project is designed for automated testing of UI and APIs using a combinatio
 #### java:
 ##### * apiTest: ApiTest
 ##### * functionalTest: CartTest, LoginTest, RegistrationTest, SearchTest
+##### * smokeTests: LoadMainPage
 ##### * CommonTest
 #### resources:
-##### * jenkins files: jfAPI
+##### * jenkins files: jfAPI, jfFuncTS
 ##### * json: addProductsToCart, getChatBotJsonSchema, getGamJsonSchema, getLimitsConfigurationJsonSchema, getPopularCategoriesJsonSchema, postAddItemToCartJsonSchema, postCartItemQuantityIncreaseJsonSchema, putSnapshotsJsonSchema, quantityDecrease, quantityIncrease, snapshots, testBody
 ##### * testSuites: apiTS, functionalTS
 
